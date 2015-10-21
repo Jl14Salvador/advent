@@ -1,6 +1,7 @@
 class Castle : public Enviros {
 	public: 
-
-	private: 
+		void setup(); 
 		
+	private: 
+
 };

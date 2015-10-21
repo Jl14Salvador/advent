@@ -1,6 +1,7 @@
-class Cave : public enviros {
+class Cave : public Enviros {
 	public: 
+		void setup(); 
 
 	private: 
-		
+
 };

@@ -1,6 +1,7 @@
 class Village : public Enviros {
 	public: 
-
-	private: 
+		void setup(); 
 		
+	private: 
+
 };
