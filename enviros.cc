@@ -1,21 +1,11 @@
-#include "enviros.h"
+#include "Enviros.h" 
+#include "Player.h" 
 
-///This will setup the cave 
-void Cave::setup() {
-	
+Enviros::Enviros() {
+
 }
 
-///This will setup the Forest
-void Forest::setup() {
-	
+~Enviros::Enviros() {
+
 }
 
-///This will setup the Castle
-void Caste::setup() {
-	
-}
-
-///This will setup the Village 
-void Village::setup() {
-	
-}

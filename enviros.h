@@ -1,14 +1,11 @@
+#ifndef ENVIROS_H
+#define ENVIROS_H
+
 class Enviros {
 	public: 
-		virtual void setup() = 0; 
-
-	private:
-
-};
-
-class Cave : public Enviros {
-	public: 
-		virtual void setup(); 
+		Enviros();
+		~Enviros(); 
+		virtual void run() = 0; 
 
 	private:
 
@@ -16,7 +13,19 @@ class Cave : public Enviros {
 
 class Forest : public Enviros {
 	public: 
-		virtual void setup(); 
+		Forest();
+		~Forest(); 
+		virtual void run(); 
+
+	private:
+
+};
+
+class Cave : public Enviros {
+	public: 
+		Cave(); 
+		~Cave(); 
+		virtual void run(); 
 
 	private:
 
@@ -24,7 +33,9 @@ class Forest : public Enviros {
 
 class Castle : public Enviros {
 	public: 
-		virtual void setup(); 
+		Castle(); 
+		~Castle(); 
+		virtual void run(); 
 
 	private:
 
@@ -32,8 +43,12 @@ class Castle : public Enviros {
 
 class Village : public Enviros {
 	public: 
-		virtual void setup(); 
+		Village(); 
+		~Village() ; 
+		virtual void run(); 
 
 	private:
 
 };
+
+#endif
