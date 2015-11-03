@@ -26,7 +26,13 @@ bool Player::isAlive() {
 
 void Player::setAlive(bool b) {
 	if (b == true) 
-		
+
 }
 
+void Player::dropHealth(int amount) {
+	health = health - amount; 
+}
 
+void Player::increaseHealth(int amount) {
+	health = health + amount; 
+}
