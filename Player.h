@@ -19,10 +19,14 @@ class Player {
 public:
 	Player(const string playerName);
 	~Player();
-	bool isAlive(); 
-	void setAlive(bool b); 
+	bool isAlive();
+	void kill();  
+	void dropHealth(int amount); 
+	void increaseHealth(int amount);
+
 
 private:
+	string name; 
 	int health;
 	vector<Action*> actionList;
 	vector<Item*> itemList;
