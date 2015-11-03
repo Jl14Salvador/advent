@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-Wall -g -std=c++11
-OBJS=enviros.o castle.o cave.o forest.o village.o
+OBJS=Enviros.o Action.o Player.o Forest.cc Village.cc Cave.cc Castle.cc 
 PROGRAM=chess2720
 
 .PHONY: all

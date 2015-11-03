@@ -17,3 +17,16 @@ Player::~Player() {
 	//delete[] board;
 }
 
+bool Player::isAlive() {
+	if (health == 0) 
+		return true; 
+	else 
+		return false; 
+}
+
+void Player::setAlive(bool b) {
+	if (b == true) 
+		
+}
+
+

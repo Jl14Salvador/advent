@@ -19,6 +19,9 @@ class Player {
 public:
 	Player(const string playerName);
 	~Player();
+	bool isAlive(); 
+	void setAlive(bool b); 
+
 private:
 	int health;
 	vector<Action*> actionList;
