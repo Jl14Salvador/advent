@@ -1,9 +1,5 @@
 #include "Actions.h" 
 
-Actions::Action() {
-
-}
-
 void Actions::doAction() {
 	
 }
@@ -16,7 +12,7 @@ void Talk::doAction() {
 
 }
 
-void Rest::doAction() {
+void Open::doAction() {
 
 }
 

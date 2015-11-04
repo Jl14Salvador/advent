@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <vector>
+#include "Actions.h" 
+#include "Items.h" 
 using namespace std;
 
 /**
@@ -19,10 +21,15 @@ class Player {
 public:
 	Player(const string playerName);
 	~Player();
+	string getName(); 
+	void setName(string n); 
 	bool isAlive();
 	void kill();  
 	void dropHealth(int amount); 
 	void increaseHealth(int amount);
+	int returnHealth(); 
+	void addItem(&Item i); 
+
 
 
 private:
