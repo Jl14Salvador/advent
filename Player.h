@@ -21,16 +21,14 @@ class Player {
 public:
 	Player(const string playerName);
 	~Player();
-	string getName(); 
-	void setName(string n); 
-	bool isAlive();
+	string getName(); 	
+	void setName(string n);
+ 	bool isAlive();
 	void kill();  
 	void dropHealth(int amount); 
 	void increaseHealth(int amount);
-	int returnHealth(); 
+	int getHealth(); 
 	void addItem(&Item i); 
-
-
 
 private:
 	string name; 

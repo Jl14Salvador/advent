@@ -1,10 +1,6 @@
 #include "Actions.h" 
 
-void Actions::doAction() {
-	
-}
-
-void Attack::doAction () {
+void Attack::doAction() {
 
 }
 

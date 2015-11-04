@@ -28,15 +28,15 @@ Player::Player(const string playerName, int h) {
 	name = playerName; 
 
 	///Set actionList
-	actionList.push_back(new Attack);
-	actionList.push_back(new Talk);
-	actionList.push_back(new Rest);
-	actionList.push_back(new Eat;
+	actionList.push_back(new Attack() );
+	actionList.push_back(new Talk() );
+	actionList.push_back(new Rest() );
+	actionList.push_back(new Eat() ;
 
 	///Set itemList 
-	itemList.push_back(new Scroll); 
-	itemList.push_back(new Key) ; 
-	itemList.push_back(new Potion); 
+	itemList.push_back(new Scroll() ); 
+	itemList.push_back(new Key() ) ; 
+	itemList.push_back(new Potion() ); 
 }
 
 
@@ -72,10 +72,10 @@ void Player::increaseHealth(int amount) {
 	health = health + amount; 
 }
 
-int Player::returnHealth() {
+int Player::getHealth() {
 	return health; 
 }
 
-void Player::addItem(&Item i) {
+void Player::addItem(&Items i) {
 	itemList.push_back(i); 
 }
