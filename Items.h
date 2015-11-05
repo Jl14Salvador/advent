@@ -12,11 +12,15 @@ private:
 
 class Key : public Items {
 public: 
+	Key() {}; 
+	~Key() {}; 
 	void useItem(); 
 };
 
 class Scroll : public Items {
 public: 
+	Scroll() {};
+	~Scroll() {};
 	void useItem(); 
 
 private: 
@@ -24,6 +28,8 @@ private:
 
 class Potion : public Items {
 public: 
+	Potion() {};
+	~Potion() {};
 	void useItem(); 
 
 private: 

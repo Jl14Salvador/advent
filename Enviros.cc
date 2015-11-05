@@ -5,7 +5,7 @@ Enviros::Enviros() {
 
 }
 
-~Enviros::Enviros() {
+Enviros::~Enviros() {
 
 }
 

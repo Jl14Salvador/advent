@@ -7,7 +7,7 @@ public:
 	~Grid();
 
 private: 
-	//vector 
+	//vector of environments?
 };
 
 #endif
