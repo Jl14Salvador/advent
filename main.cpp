@@ -1,12 +1,15 @@
 #include "Player.h"
 #include "Character.h"
+#include <iostream>
 
 int main(void) {
-	Player j = new Player("Juan", 200);
-	j.kill(); 
-	cout << j.getHealth();  
-
-	cout << "Welcome to the Land of Torvold"; 
+	cout << "Welcome to the Land of Torvold" << endl;
+	cout << "Please enter your name: "; 
+    string name; 
+    cin >> name; 
+	Player main = new Player(name, 200);
+	cout << "Excellent, you will travel through 4 different environments where 
+	you must be defeat the great dragon of the Lands. " << endl; 
 
 	//Create Characters
 	Character Berners = new Character("Berners", 200);
