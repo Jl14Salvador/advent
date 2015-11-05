@@ -1,4 +1,5 @@
 #include "Items.h"
+#include <iostream>
 
 void Key::useItem() {
 	std::cout << "Key has been used" << std::endl; 

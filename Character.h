@@ -1,13 +1,14 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
+#include <iostream>
 
 class Character {
 public:
-	Character(const string CharacterName);
-	Character(const string CharacterName, int h); 
+	Character(const std::string CharacterName);
+	Character(const std::string CharacterName, int h); 
 	~Character();
-	string getName(); 	
-	void setName(string n);
+	std::string getName(); 	
+	void setName(std::string n);
  	bool isAlive();
 	void kill();  
 	void dropHealth(int amount); 
@@ -15,7 +16,7 @@ public:
 	int getHealth(); 
 
 private:
-	string name; 
+	std::string name; 
 	int health;
 };
 

@@ -1,50 +1,50 @@
-#include "Player.h"
+#include "Character.h"
 
-Player::Player(const string playerName){
+Character::Character(const std::string CharacterName){
 	health = 100; 
-	name = playerName; 	
+	name = CharacterName; 	
 }
 
-Player::Player(const string playerName, int h) {
+Character::Character(const std::string CharacterName, int h) {
 	health = h; 
-	name = playerName; 
+	name = CharacterName; 
 }
 
-Player::~Player() {
-	//delete player
+Character::~Character() {
+	//delete Character
 }
 
-string Player::getName(){
+std::string Character::getName(){
 	return name;
 }
 
-void Player::setName(string n) {
+void Character::setName(std::string n) {
 	name = n; 
 }
 
-void Player::kill() {
+void Character::kill() {
 	health = 0; 
 }
 
-bool Player::isAlive() {
+bool Character::isAlive() {
 	if (health == 0) 
 		return true; 
 	else 
 		return false; 
 }
 
-void Player::dropHealth(int amount) {
+void Character::dropHealth(int amount) {
 	health = health - amount; 
 }
 
-void Player::increaseHealth(int amount) {
+void Character::increaseHealth(int amount) {
 	health = health + amount; 
 }
 
-int Player::getHealth() {
+int Character::getHealth() {
 	return health; 
 }
 
-// void Player::addItem(Items &i) {
+// void Character::addItem(Items &i) {
 // 	itemList.push_back(i); 
 // }
