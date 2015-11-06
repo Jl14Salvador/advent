@@ -3,6 +3,7 @@
 #include <iostream>
 
 int main(void) {
+
 	cout << "Welcome to the Land of Torvold" << endl;
 	cout << "Please enter your name: "; 
     string name; 
@@ -21,13 +22,13 @@ int main(void) {
 	forest _forest = new Forest(); 
 	_forest.run(); 
 
-	village _village = new Village(); 
+	Village _village = new Village(); 
 	_village.run(); 
 
 	Cave _cave = new Cave();
 	_cave.run(); 
 	
-	castle _castle = new Castle(); 
+	Castle _castle = new Castle(); 
 	_castle.run();
 
 

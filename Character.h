@@ -14,9 +14,10 @@ public:
 	void dropHealth(int amount); 
 	void increaseHealth(int amount);
 	int getHealth(); 
-	void attack(Character who*); 
+	void attack(Character* attacker, Character* who); 
 
 private:
+	Item* _item; 
 	std::string name; 
 	int health;
 };

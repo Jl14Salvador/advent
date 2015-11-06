@@ -24,8 +24,8 @@ public:
 	///Set actionList
 	actionList.push_back(new Attack);
 	actionList.push_back(new Talk);
-	actionList.push_back(new Open);
-	actionList.push_back(new Eat);
+	actionList.push_back(new Ignore);
+	actionList.push_back(new Skip);
 
 	///Set itemList 
 	itemList.push_back(new Scroll); 
@@ -37,8 +37,8 @@ public:
 	///Set actionList
 	actionList.push_back(new Attack);
 	actionList.push_back(new Talk);
-	actionList.push_back(new Open);
-	actionList.push_back(new Eat);
+	actionList.push_back(new Ignore);
+	actionList.push_back(new Skip);
 
 	///Set itemList 
 	itemList.push_back(new Scroll); 
@@ -48,6 +48,15 @@ public:
 	~Player();
 	void addItem(Items &i) {
 		itemList.push_back(i); 
+	}
+	bool hasKey() {
+		if(actionList.contains(Key))
+			return true;
+		else
+			return false;  
+	}
+	vector<Items*> getInventory() {
+		return itemList; 
 	}
 
 private:

@@ -1,11 +1,13 @@
 #ifndef ACTIONS_H
 #define ACTIONS_H
 
+#include "Character.h"
+
 class Actions {
 public: 
 	Actions() {}; 
 	~Actions() {}; 
-	virtual void doAction() = 0; //pure virtual 
+	virtual void doAction(Character* c) = 0; //pure virtual 
 
 private:
 	
@@ -15,7 +17,7 @@ class Attack : public Actions {
 public: 
 	Attack() {};
 	~Attack() {}; 
-	void doAction();
+	void doAction(Character* c);
 		
 private: 
 
@@ -25,27 +27,27 @@ class Talk : public Actions {
 public: 
 	Talk() {}; 
 	~Talk() {};
-	void doAction(); 
+	void doAction(Character* c); 
 
 private: 
 
 };
 
-class Open : public Actions {
+class Ignore : public Actions {
 public: 
-	Open() {};
-	~Open() {}; 
-	void doAction(); 
+	Ignore() {};
+	~Ignore() {}; 
+	void doAction(Character* c); 
 
 private: 
 
 };
 
-class Eat : public Actions {
+class Skip : public Actions {
 public: 
-	Eat() {}; 
-	~Eat() {}; 
-	void doAction(); 
+	Skip() {}; 
+	~Skip() {}; 
+	void doAction(Character* c); 
 
 private: 
 

@@ -45,8 +45,8 @@ int Character::getHealth() {
 	return health; 
 }
 
-void Attack(Character who*){
-	cout << who->getName() << "was Attacked!" << endl; 
+void Character::attack(Character* attacker, Character* who) {
+	std::cout << who->getName() << " was Attacked by " << attacker->getName() << "!" << std::endl; 
 	who->dropHealth(20); 
 }
 

@@ -17,13 +17,13 @@ using namespace std;
 /**
  * This represents the adventure game
  */
-class LandOfTrovald {
+class LandOfTorvald{
 public:
 	/*
 	 * sets up the environment, with a player, with welcome message 
 	 */
-	LandOfTrovald();
-	~LandOfTrovald();
+	LandOfTorvald();
+	~LandOfTorvald();
 private:
 	vector<Enviros> environmentList;
 };

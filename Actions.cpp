@@ -1,19 +1,19 @@
 #include "Actions.h" 
 #include <iostream>
-void Attack::doAction() {
+void Attack::doAction(Character* c) {
 	std::cout << "Attack happened" << std::endl; 
 }
 
-void Talk::doAction() {
+void Talk::doAction(Character* c) {
 	std::cout << "Talk happened" << std::endl;
 }
 
-void Open::doAction() {
-	std::cout << "Open happened" << std::endl; 
+void Ignore::doAction(Character* c) {
+	std::cout << "Ignore happened" << std::endl; 
 }
 
-void Eat::doAction() {
-	std::cout << "Eat happened" << std::endl; 
+void Skip::doAction(Character* c) {
+	std::cout << "Skip happened" << std::endl; 
 }
 
 
