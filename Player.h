@@ -46,8 +46,9 @@ public:
 	itemList.push_back(new Potion); 
 	} 
 	~Player();
-	string getName(); 	
-	// void addItem(Items &i); 
+	void addItem(Items &i) {
+		itemList.push_back(i); 
+	}
 
 private:
 	vector<Actions*> actionList;

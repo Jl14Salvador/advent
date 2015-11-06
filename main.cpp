@@ -18,6 +18,19 @@ int main(void) {
 	Character Ledorf = new Character("Ledorf", 200); 
 	Character Dragon = new Character("Dragon", 1000);
 
+	forest _forest = new Forest(); 
+	_forest.run(); 
+
+	village _village = new Village(); 
+	_village.run(); 
+
+	Cave _cave = new Cave();
+	_cave.run(); 
+	
+	castle _castle = new Castle(); 
+	_castle.run();
+
+
 	return 0; 
 
 }

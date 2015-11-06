@@ -3,11 +3,15 @@
 
 class Grid{
 public:
-	Grid();
+	Grid(int x, int y);
 	~Grid();
+	int getRow();
+	int getCol(); 
 
 private: 
 	//vector of environments?
+	int row;
+	int col; 
 };
 
 #endif

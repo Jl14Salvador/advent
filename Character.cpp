@@ -45,6 +45,8 @@ int Character::getHealth() {
 	return health; 
 }
 
-// void Character::addItem(Items &i) {
-// 	itemList.push_back(i); 
-// }
+void Attack(Character who*){
+	cout << who->getName() << "was Attacked!" << endl; 
+	who->dropHealth(20); 
+}
+
