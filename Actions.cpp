@@ -1,5 +1,6 @@
 #include "Actions.h" 
 #include <iostream>
+
 void Attack::doAction(Character* c) {
 	std::cout << "Attack happened" << std::endl; 
 }

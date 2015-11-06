@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-Wall -g -std=c++11
-OBJS= main.cpp Actions.o Items.o Player.h Character.o
+OBJS= main.cpp Actions.o Items.o Player.o Character.o Enemies.o
 PROGRAM=advent
 
 .PHONY: all

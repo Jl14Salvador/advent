@@ -2,12 +2,14 @@
 
 Character::Character(const std::string CharacterName){
 	health = 100; 
-	name = CharacterName; 	
+	name = CharacterName;
+	_item = NULL;  	
 }
 
-Character::Character(const std::string CharacterName, int h) {
+Character::Character(const std::string CharacterName, int h, Item* i) {
 	health = h; 
 	name = CharacterName; 
+	_item = i; 
 }
 
 Character::~Character() {
@@ -49,4 +51,6 @@ void Character::attack(Character* attacker, Character* who) {
 	std::cout << who->getName() << " was Attacked by " << attacker->getName() << "!" << std::endl; 
 	who->dropHealth(20); 
 }
+
+
 

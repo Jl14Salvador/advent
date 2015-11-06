@@ -2,6 +2,9 @@
 #define CHARACTER_H
 #include <iostream>
 
+class Items; 
+class Actions; 
+
 class Character {
 public:
 	Character(const std::string CharacterName);
@@ -17,7 +20,6 @@ public:
 	void attack(Character* attacker, Character* who); 
 
 private:
-	Item* _item; 
 	std::string name; 
 	int health;
 };

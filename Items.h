@@ -1,46 +1,50 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
-#include "Character.h"
+#include "Player.h"
+
+class Player; 
+class Character; 
+
 class Items {
 public:
-	Items() {};
-	~Items() {};
-	virtual void useItem(Character* who) = 0;
+	Items(){};
+	~Items(){};
+	virtual void useItem(Player* who) = 0;
 
 private:
 };
 
 class Key : public Items {
 public: 
-	Key() {}; 
-	~Key() {}; 
-	void useItem(Character* who); 
+	Key(){}; 
+	~Key(){}; 
+	void useItem(Player* who); 
 };
 
 class Scroll : public Items {
 public: 
-	Scroll() {};
-	~Scroll() {};
-	void useItem(Character* who)); 
+	Scroll(){};
+	~Scroll(){};
+	void useItem(Player* who); 
 
 private: 
 };
 
 class Potion : public Items {
 public: 
-	Potion() {};
-	~Potion() {};
-	void useItem(Character* who)); 
+	Potion(){};
+	~Potion(){};
+	void useItem(Player* who); 
 
 private: 
 };
 
 class SuperPotion : public Items {
 public: 
-	Potion() {};
-	~Potion() {};
-	void useItem(Character* who)); 
+	Potion(){};
+	~Potion(){};
+	void useItem(Player* who); 
 
 private: 
 };

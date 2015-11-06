@@ -13,11 +13,11 @@ int main(void) {
 	you must be defeat the great dragon of the Lands. " << endl; 
 
 	//Create Characters
-	Character Berners = new Character("Berners", 200);
-	Character Dijistra = new Character("Dijistra", 200); 
-	Character Gates = new Character("Gates", 200); 
-	Character Ledorf = new Character("Ledorf", 200); 
-	Character Dragon = new Character("Dragon", 1000);
+	Enemy Berners = new Enemy("Berners", 200);
+	Enemy Dijistra = new Enemy("Dijistra", 200); 
+	Enemy Gates = new Enemy("Gates", 200); 
+	Enemy Ledorf = new Enemy("Ledorf", 200); 
+	Enemy Dragon = new Enemy("Dragon", 1000);
 
 	forest _forest = new Forest(); 
 	_forest.run(); 
