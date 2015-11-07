@@ -16,7 +16,7 @@ Character::~Character() {
 	//delete Character
 }
 
-std::string Character::getName(){
+std::string Character::getName() const {
 	return name;
 }
 
@@ -43,7 +43,7 @@ void Character::increaseHealth(int amount) {
 	health = health + amount; 
 }
 
-int Character::getHealth() {
+int Character::getHealth() const {
 	return health; 
 }
 

@@ -23,42 +23,18 @@ class Items; //forward declaration
  */
 class Player : public Character {
 public:
-	Player(const string playerName) : Character(playerName) {
-		///Set actionList
-		actionList.push_back(new Attack);
-		actionList.push_back(new Talk);
-		actionList.push_back(new Ignore);
-		actionList.push_back(new Skip);
-
-		///Set itemList 
-		itemList.push_back(new Scroll); 
-		itemList.push_back(new Key); 
-		itemList.push_back(new Potion);
-		itemList.push_back(new SuperPotion); 
-	}
-
-	Player(const string playerName, int h) : Character(playerName, h) {
-		///Set actionList
-		actionList.push_back(new Attack);
-		actionList.push_back(new Talk);
-		actionList.push_back(new Ignore);
-		actionList.push_back(new Skip);
-
-		///Set itemList 
-		itemList.push_back(new Scroll); 
-		itemList.push_back(new Key); 
-		itemList.push_back(new Potion); 
-		itemList.push_back(new SuperPotion); 
-	} 
-
-	~Player();
+	Player(const string playerName);
+	Player(const string playerName, int h);
+	virtual ~Player();
+	
 	void addItem(Items* i);
 	bool hasKey();
-	vector<Items*> getInventory();
+	vector<Items*> getInventory() const;
 
 private:
 	vector<Actions*> actionList;
 	vector<Items*> itemList;
+	
 };
        
 #endif /* PLAYER_H_ */

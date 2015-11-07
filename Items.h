@@ -9,44 +9,65 @@ class Character;
 class Items {
 public:
 	Items(){};
-	~Items(){};
+	virtual ~Items(){};
+	virtual std::string getName() const = 0; 
 	virtual void useItem(Player* who) = 0;
-
+	virtual void increment() = 0; 
 private:
 };
 
 class Key : public Items {
 public: 
-	Key(){}; 
-	~Key(){}; 
+	Key() : name("Key"), quantity(0) {}
+	virtual ~Key(){}; 
+	std::string getName() const;
+	int getQuantity() const; 
 	void useItem(Player* who); 
+	void increment(); 
+
+
+private:
+	std::string name; 
+	int quantity; 
 };
 
-class Scroll : public Items {
+/*class Scroll : public Items {
 public: 
-	Scroll(){};
-	~Scroll(){};
+	Scroll() : name("Scroll") {}
+	virtual ~Scroll(){};
+	std::string getName() const; 
 	void useItem(Player* who); 
 
 private: 
-};
+	std::string name; 
+};*/
 
 class Potion : public Items {
 public: 
-	Potion(){};
-	~Potion(){};
-	void useItem(Player* who); 
+	Potion() : name("Potion"), quantity(0) {}
+	virtual ~Potion(){};
+	std::string getName() const; 
+	int getQuantity() const; 
+	void useItem(Player* who); 		
+	void increment(); 
 
 private: 
+	std::string name; 
+	int quantity;
 };
 
 class SuperPotion : public Items {
 public: 
-	Potion(){};
-	~Potion(){};
+	SuperPotion() : name("SuperPotion"), quantity(0) {};
+	virtual ~SuperPotion(){};
+	std::string getName() const; 
+	int getQuantity() const;
 	void useItem(Player* who); 
+	void increment(); 
 
 private: 
+	std::string name; 
+	int quantity;
 };
 
 

@@ -6,7 +6,7 @@
 class Actions {
 public: 
 	Actions(){}; 
-	~Actions(){}; 
+	virtual ~Actions(){}; 
 	virtual void doAction(Character* c) = 0; //pure virtual 
 
 private:
@@ -16,7 +16,7 @@ private:
 class Attack : public Actions {
 public: 
 	Attack(){};
-	~Attack(){}; 
+	virtual ~Attack(){}; 
 	void doAction(Character* c);
 		
 private: 
@@ -26,7 +26,7 @@ private:
 class Talk : public Actions {
 public: 
 	Talk(){}; 
-	~Talk(){};
+	virtual ~Talk(){};
 	void doAction(Character* c); 
 
 private: 
@@ -36,7 +36,7 @@ private:
 class Ignore : public Actions {
 public: 
 	Ignore(){};
-	~Ignore(){}; 
+	virtual ~Ignore(){}; 
 	void doAction(Character* c); 
 
 private: 
@@ -46,7 +46,7 @@ private:
 class Skip : public Actions {
 public: 
 	Skip(){}; 
-	~Skip(){}; 
+	virtual ~Skip(){}; 
 	void doAction(Character* c); 
 
 private: 

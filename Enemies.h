@@ -7,7 +7,7 @@ class Enemy : public Character {
 public:
 	Enemy(const std::string enemyName) : Character(enemyName), _item(NULL) {}
 	Enemy(const std::string enemyName, int h, Item* i) : Character(enemyName, h), _item(i) {}
-	~Enemy() {}; 
+	virtual ~Enemy() {}; 
 	Player* giveItem(Player* who);
 
 private:
