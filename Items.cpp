@@ -2,44 +2,88 @@
 #include "Player.h" 
 #include <iostream>
 
-void Key::useItem(Player* who) {
-	std::cout << "Key has been used" << std::endl; 
-	for(int i=0; i < (who->getInventory()).size(); i++) {
-		if((who->getInventory()).at(i).contains(Key)){
-			(who->getInventory()).erase(i);
-			break; 
-		}	
+
+//------------------------------------------------------------------------------
+
+void Bomb::useItem(Player* who) {
+	if(quantity > 0) {
+		std::cout << "Bomb has been used." << std::endl;
+		quantity--; 
+		std:: cout << "You have " << quantity << " " << name; 
+		if(quantity == 1) 
+			std::cout << " remaining\n";
+		else 	
+			std::cout << "s remaining\n";	
 	}
+	else 
+		std::cout << "You have no " << name << "s left!" << endl; 		
 }
-		
-void Scroll::useItem(Player* who) {
-	std::cout << "Scroll has been used" << std::endl; 
-	for(int i=0; i < (who->getInventory()).size(); i++){
-		if((who->getInventory()).at(i).contains(Scroll)){
-			(who->getInventory()).erase(i);
-			break; 
-		}	
-	}		
+
+string Bomb::getName() const {
+	return name; 
 }
+
+int Bomb::getQuantity() const {
+	return quantity;
+}
+
+void Bomb::increment() {
+	quantity += 1;  
+}
+//------------------------------------------------------------------------------
 
 void Potion::useItem(Player* who) {
-	std::cout << "Potion has been used" << std::endl; 
-	who->increaseHealth(20); 
-	for(int i=0; i < (who->getInventory()).size(); i++) {
-		if((who->getInventory()).at(i).contains(Potion)){
-			(who->getInventory()).erase(i);
-			break; 
-		}	
-	}				
+	if(quantity > 0) {
+		std::cout << "Potion has been used" << std::endl; 
+		who->increaseHealth(20); 
+		quantity--; 
+		std:: cout << "You have " << quantity << " " << name; 
+		if(quantity == 1) 
+			std::cout << " remaining\n";
+		else 	
+			std::cout << "s remaining\n";	
+	}
+	else
+		std::cout << "You have no " << name << "s left." << endl; 						
 }
 
-void SuperPotion::useItem(Player* who){
-	std::cout << "Super potion has been used" << std::endl; 
-	who->increaseHealth(50); 
-	for(int i=0; i < (who->getInventory()).size(); i++) {
-		if((who->getInventory()).at(i).contains(SuperPotion)){
-			(who->getInventory()).erase(i);
-			break; 
-		}
-	}		
+string Potion::getName() const {
+	return name; 
 }
+
+int Potion::getQuantity() const {
+	return quantity;
+}
+
+void Potion::increment() {
+	quantity += 1;  
+}
+
+//------------------------------------------------------------------------------
+void SuperPotion::useItem(Player* who){
+	if(quantity > 0) {
+		std::cout << "Potion has been used" << std::endl; 
+		who->increaseHealth(50); 
+		quantity--; 
+		std:: cout << "You have " << quantity << " " << name; 
+		if(quantity == 1) 
+			std::cout << " remaining\n";
+		else 	
+			std::cout << "s remaining\n";	
+	}
+	else 
+		std::cout << "You have no " << name << "s left." << endl; 					
+}
+
+string SuperPotion::getName() const {
+	return name; 
+}
+
+int SuperPotion::getQuantity() const {
+	return quantity;
+}
+
+void SuperPotion::increment() {
+	quantity += 1;  
+}
+//------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
  * Player.h
  *
  *  Created on: Nov 2, 2015
- *      Author: Frank Zhao
+ *      Author: Blinding Eclipse
  */
 
 #ifndef PLAYER_H_
@@ -10,55 +10,37 @@
 
 #include <iostream>
 #include <vector>
-#include "Actions.h" 
+#include "Weapon.h"
 #include "Items.h" 
  
 using namespace std;
 
-class Actions; //forward declaration 
 class Items; //forward declaration 
+class Weapon; //forward declaration
 
 /**
  * This represents the player of the game that interact with the rest of the system
  */
 class Player : public Character {
 public:
-	Player(const string playerName) : Character(playerName) {
-		///Set actionList
-		actionList.push_back(new Attack);
-		actionList.push_back(new Talk);
-		actionList.push_back(new Ignore);
-		actionList.push_back(new Skip);
+	Player(const string playerName);
+	Player(const string playerName, int h);
+	~Player(){};
 
-		///Set itemList 
-		itemList.push_back(new Scroll); 
-		itemList.push_back(new Key); 
-		itemList.push_back(new Potion);
-		itemList.push_back(new SuperPotion); 
-	}
-
-	Player(const string playerName, int h) : Character(playerName, h) {
-		///Set actionList
-		actionList.push_back(new Attack);
-		actionList.push_back(new Talk);
-		actionList.push_back(new Ignore);
-		actionList.push_back(new Skip);
-
-		///Set itemList 
-		itemList.push_back(new Scroll); 
-		itemList.push_back(new Key); 
-		itemList.push_back(new Potion); 
-		itemList.push_back(new SuperPotion); 
-	} 
-
-	~Player();
 	void addItem(Items* i);
-	bool hasKey();
-	vector<Items*> getInventory();
+	void useItem(Items* i); 
+	vector<Items*> getInventory() const;
+	void showItems() const; 
+	void attack(Character* who);
+	void setWeapon(Weapon* weaponType);
+	void addGem();
+	int getGems() const; 
 
 private:
-	vector<Actions*> actionList;
 	vector<Items*> itemList;
+	Weapon* _weapon; 
+	int gems; 
+	
 };
        
 #endif /* PLAYER_H_ */
