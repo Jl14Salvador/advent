@@ -23,11 +23,14 @@ public:
 	 * sets up the environment, with a player, with welcome message 
 	 */
 	LandOfTorvald();
-	~LandOfTorvald();
+	~LandOfTorvald(){}
 	void run(); 
+	void createUser(); 
+	void bossBattle();
+
 private:
 	vector<Enviros*> environmentList;
-	Player* main; 
+	Player* _player; 
 };
 
 #endif /* LANDOFTORVALD_H_ */
