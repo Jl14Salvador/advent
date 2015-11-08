@@ -70,6 +70,7 @@ void Potion::increment() {
 void SuperPotion::useItem(Player* who){
 	std::cout << "Super potion has been used" << std::endl; 
 	who->increaseHealth(50); 
+	
 	// for(int i=0; i < (who->getInventory()).size(); i++) {
 	// 	if((who->getInventory()).at(i)->getName() == "SuperPotion"){
 	// 		vector<Items*> temp = who->getInventory();

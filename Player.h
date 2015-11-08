@@ -2,7 +2,7 @@
  * Player.h
  *
  *  Created on: Nov 2, 2015
- *      Author: Frank Zhao
+ *      Author: Blinding Eclipse
  */
 
 #ifndef PLAYER_H_
@@ -25,11 +25,12 @@ class Player : public Character {
 public:
 	Player(const string playerName);
 	Player(const string playerName, int h);
-	virtual ~Player();
+	~Player() {}
 
 	void addItem(Items* i);
 	int hasKey();
 	vector<Items*> getInventory() const;
+
 
 private:
 	vector<Actions*> actionList;

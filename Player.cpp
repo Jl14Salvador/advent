@@ -29,9 +29,15 @@ Player::Player(const string playerName, int h) : Character(playerName, h) {
 	itemList.push_back(new SuperPotion); 
 }
 
-void Player::addItem(Items* i) {
-	itemList.push_back(i); 
-	i->increment(); 
+void Player::addItem(Items* it) {
+	for(int i=0; i < itemList.size(); i++) {
+		if(it->getName() == "Key")
+			itemList.at(i)->increment();
+		if(it->getName() == "Potion")
+			itemList.at(i)->increment(); 
+		if(it->getName() == "SuperPotion")
+			itemList.at(i)->increment(); 
+	}	
 }
 
 int Player::hasKey() {

@@ -16,5 +16,3 @@ void Ignore::doAction(Character* c) {
 void Skip::doAction(Character* c) {
 	std::cout << "Skip happened" << std::endl; 
 }
-
-

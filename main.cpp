@@ -9,7 +9,7 @@ int main(void) {
 	cout << "Please enter your name: "; 
     string name; 
     cin >> name; 
-	Player* player1 = new Player(name, 200);
+	Player* Player1 = new Player(name, 200);
 	cout << "Excellent, you will travel through 4 different environments where you must be defeat the great dragon of the Lands. " << endl; 
 
 	//Create Characters
@@ -36,6 +36,7 @@ int main(void) {
 	delete Gates;
 	delete Ledorf; 
 	delete Dragon; 
+	delete Player1; 
 
 	return 0; 
 
