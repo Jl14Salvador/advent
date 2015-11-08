@@ -3,10 +3,10 @@
 
 Player::Player(const string playerName) : Character(playerName) {
 	///Set actionList
-	actionList.push_back(new Attack);
-	actionList.push_back(new Talk);
-	actionList.push_back(new Ignore);
-	actionList.push_back(new Skip);
+	// actionList.push_back(new Attack);
+	// actionList.push_back(new Talk);
+	// actionList.push_back(new Ignore);
+	// actionList.push_back(new Skip);
 
 	///Set itemList 
 	// itemList.push_back(new Scroll); 
@@ -17,13 +17,13 @@ Player::Player(const string playerName) : Character(playerName) {
 
 Player::Player(const string playerName, int h) : Character(playerName, h) {
 	///Set actionList
-	actionList.push_back(new Attack);
-	actionList.push_back(new Talk);
-	actionList.push_back(new Ignore);
-	actionList.push_back(new Skip);
+	// actionList.push_back(new Attack);
+	// actionList.push_back(new Talk);
+	// actionList.push_back(new Ignore);
+	// actionList.push_back(new Skip);
+	_weapon = new BasicAttk; 
 
 	///Set itemList 
-	// itemList.push_back(new Scroll); 
 	itemList.push_back(new Key);  
 	itemList.push_back(new Potion); 
 	itemList.push_back(new SuperPotion); 
@@ -40,7 +40,7 @@ void Player::addItem(Items* it) {
 	}	
 }
 
-int Player::hasKey() {
+/*int Player::hasKey() {
 	for(int i=0; i < itemList.size(); i++ ) {
 		if(itemList.at(i)->getName() == "Key") {
 			return itemList.at(i)->getQuantity(); 
@@ -48,9 +48,18 @@ int Player::hasKey() {
 		}
 	}
 	return 0; 
-}
+}*/
 
 vector<Items*> Player::getInventory() const {
 	return itemList; 
+}
+
+
+void Player::attack(Character* attacker, Character* who) {
+	_weapon->attack(attacker, who); 
+}
+
+void Player::setWeapon(Weapon* weaponType){
+	_weapon = weaponType; 
 }
 

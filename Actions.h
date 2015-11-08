@@ -23,7 +23,7 @@ private:
 
 };
 
-class Talk : public Actions {
+/*class Talk : public Actions {
 public: 
 	Talk(){}; 
 	virtual ~Talk(){};
@@ -31,9 +31,9 @@ public:
 
 private: 
 
-};
+};*/
 
-class Ignore : public Actions {
+/*class Ignore : public Actions {
 public: 
 	Ignore(){};
 	virtual ~Ignore(){}; 
@@ -41,9 +41,9 @@ public:
 
 private: 
 
-};
+};*/
 
-class Skip : public Actions {
+/*class Skip : public Actions {
 public: 
 	Skip(){}; 
 	virtual ~Skip(){}; 
@@ -51,7 +51,7 @@ public:
 
 private: 
 
-};
+};*/
 
 #endif
 

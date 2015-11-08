@@ -10,7 +10,7 @@ class Enemies;
 class Items {
 public:
 	Items(){};
-	virtual ~Items(){};
+	~Items(){};
 	virtual std::string getName() const = 0;
 	virtual int getQuantity() const = 0; 
 	virtual void useItem(Player* who) = 0;
@@ -33,21 +33,11 @@ private:
 	int quantity; 
 };
 
-/*class Scroll : public Items {
-public: 
-	Scroll() : name("Scroll") {}
-	virtual ~Scroll(){};
-	std::string getName() const; 
-	void useItem(Player* who); 
-
-private: 
-	std::string name; 
-};*/
 
 class Potion : public Items {
 public: 
 	Potion() : name("Potion"), quantity(0) {}
-	virtual ~Potion(){};
+	~Potion(){};
 	std::string getName() const; 
 	int getQuantity() const; 
 	void useItem(Player* who); 		
@@ -61,7 +51,7 @@ private:
 class SuperPotion : public Items {
 public: 
 	SuperPotion() : name("SuperPotion"), quantity(0) {};
-	virtual ~SuperPotion(){};
+	~SuperPotion(){};
 	std::string getName() const; 
 	int getQuantity() const;
 	void useItem(Player* who); 
