@@ -5,12 +5,14 @@
 
 class Player; 
 class Character; 
+class Enemies; 
 
 class Items {
 public:
 	Items(){};
 	virtual ~Items(){};
-	virtual std::string getName() const = 0; 
+	virtual std::string getName() const = 0;
+	virtual int getQuantity() const = 0; 
 	virtual void useItem(Player* who) = 0;
 	virtual void increment() = 0; 
 private:

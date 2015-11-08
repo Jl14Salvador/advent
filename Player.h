@@ -26,9 +26,9 @@ public:
 	Player(const string playerName);
 	Player(const string playerName, int h);
 	virtual ~Player();
-	
+
 	void addItem(Items* i);
-	bool hasKey();
+	int hasKey();
 	vector<Items*> getInventory() const;
 
 private:

@@ -3,13 +3,11 @@
 Character::Character(const std::string CharacterName){
 	health = 100; 
 	name = CharacterName;
-	_item = NULL;  	
 }
 
-Character::Character(const std::string CharacterName, int h, Item* i) {
+Character::Character(const std::string CharacterName, int h) {
 	health = h; 
 	name = CharacterName; 
-	_item = i; 
 }
 
 Character::~Character() {

@@ -37,11 +37,11 @@ void Player::addItem(Items* i) {
 int Player::hasKey() {
 	for(int i=0; i < itemList.size(); i++ ) {
 		if(itemList.at(i)->getName() == "Key") {
-			return itemList.at(i)->getQuantity; 
+			return itemList.at(i)->getQuantity(); 
 			break;
 		}
 	}
-	return false; 
+	return 0; 
 }
 
 vector<Items*> Player::getInventory() const {
