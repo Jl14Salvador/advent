@@ -1,4 +1,4 @@
-#include "LandofTorvold"
+#include "LandOfTorvald.h"
 
 int main() {
 	cout << "Welcome to the Land of Torvold" << endl;

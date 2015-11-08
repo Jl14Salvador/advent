@@ -10,7 +10,7 @@ class Enviros {
 	private:
 
 };
-
+/*
 class Forest : public Enviros {
 	public: 
 		Forest();
@@ -50,5 +50,5 @@ class Village : public Enviros {
 	private:
 
 };
-
+*/
 #endif
