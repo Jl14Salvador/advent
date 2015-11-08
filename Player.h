@@ -28,17 +28,17 @@ public:
 	~Player(){};
 
 	void addItem(Items* i);
+	void useItem(Items* i); 
 	vector<Items*> getInventory() const;
-	void attack(Character* attack, Character* who);
+	void showItems() const; 
+	void attack(Character* who);
 	void setWeapon(Weapon* weaponType);
 	void addGem();
-	int getGem(); 
-
+	int getGems() const; 
 
 private:
-	// vector<Actions*> actionList;
 	vector<Items*> itemList;
-	Weapon* _weapon; //
+	Weapon* _weapon; 
 	int gems; 
 	
 };

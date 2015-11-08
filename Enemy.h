@@ -1,3 +1,10 @@
+
+/*
+ * Enemy.h
+ *
+ *  Created on: Nov 2, 2015
+ *      Author: Blinding Eclipse
+ */
 #ifndef ENEMIES_H
 #define ENEMIES_H
 

@@ -1,3 +1,10 @@
+/*
+ * Weapon.h
+ *
+ *  Created on: Nov 2, 2015
+ *      Author: Blinding Eclipse
+ */
+ 
 #ifndef WEAPON_H
 #define WEAPON_H
 
@@ -33,10 +40,10 @@ private:
 	int attackDamage; 
 };
 
-class WaterAttk : public Weapon {
+class IceAttk : public Weapon {
 public: 
-	WaterAttk() : attackDamage(60) {}
-	~WaterAttk(){};
+	IceAttk() : attackDamage(60) {}
+	~IceAttk(){};
 	void attack(Character* attacker, Character* who);
 
 private: 

@@ -1,3 +1,10 @@
+/*
+ * Items.h
+ *
+ *  Created on: Nov 2, 2015
+ *      Author: Blinding Eclipse
+ */
+
 #ifndef ITEMS_H
 #define ITEMS_H
 
@@ -18,10 +25,10 @@ public:
 private:
 };
 
-class Key : public Items {
+class Bomb : public Items {
 public: 
-	Key() : name("Key"), quantity(0) {}
-	virtual ~Key(){}; 
+	Bomb() : name("Bomb"), quantity(0) {}
+	~Bomb(){}; 
 	std::string getName() const;
 	int getQuantity() const; 
 	void useItem(Player* who); 
@@ -36,7 +43,7 @@ private:
 
 class Potion : public Items {
 public: 
-	Potion() : name("Potion"), quantity(0) {}
+	Potion() : name("Potion"), quantity(1) {}
 	~Potion(){};
 	std::string getName() const; 
 	int getQuantity() const; 
@@ -61,6 +68,5 @@ private:
 	std::string name; 
 	int quantity;
 };
-
 
 #endif

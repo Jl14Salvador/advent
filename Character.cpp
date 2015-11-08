@@ -25,13 +25,14 @@ void Character::setName(std::string n) {
 
 void Character::kill() {
 	health = 0; 
+	std::cout << this->getName() << " is dead!\n";
 }
 
 bool Character::isAlive() {
 	if (health == 0) 
-		return true; 
-	else 
 		return false; 
+	else 
+		return true; 
 }
 
 void Character::dropHealth(int amount) {
@@ -46,7 +47,7 @@ int Character::getHealth() const {
 	return health; 
 }
 
-void Character::attack(Character* attacker, Character* who, char attkType) {
+/*void Character::attack(Character* attacker, Character* who, char attkType) {
 	Questions q;
 	bool success; 
 
@@ -117,6 +118,6 @@ void Character::attack(Character* attacker, Character* who, char attkType) {
 			break; 
 	}
 }
-
+*/
 
 

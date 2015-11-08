@@ -1,3 +1,11 @@
+
+/*
+ * Character.h
+ *
+ *  Created on: Nov 2, 2015
+ *      Author: Blinding Eclipse
+ */
+
 #ifndef CHARACTER_H
 #define CHARACTER_H
 #include <iostream>
@@ -17,7 +25,7 @@ public:
 	void dropHealth(int amount); 
 	void increaseHealth(int amount);
 	int getHealth() const; 
-	void attack(Character* attacker, Character* who, char attkType); 
+	// void attack(Character* attacker, Character* who, char attkType); 
 
 private:
 	std::string name; 
