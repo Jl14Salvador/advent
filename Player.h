@@ -31,12 +31,15 @@ public:
 	vector<Items*> getInventory() const;
 	void attack(Character* attack, Character* who);
 	void setWeapon(Weapon* weaponType);
+	void addGem();
+	int getGem(); 
 
 
 private:
 	// vector<Actions*> actionList;
 	vector<Items*> itemList;
 	Weapon* _weapon; //
+	int gems; 
 	
 };
        

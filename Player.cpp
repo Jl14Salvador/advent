@@ -1,21 +1,22 @@
 #include "Player.h"
 #include <vector>
 
-Player::Player(const string playerName) : Character(playerName) {
+Player::Player(const string playerName) : Character(playerName), gems(0) {
 	///Set actionList
 	// actionList.push_back(new Attack);
 	// actionList.push_back(new Talk);
 	// actionList.push_back(new Ignore);
 	// actionList.push_back(new Skip);
 
+	_weapon = new BasicAttk; 
+
 	///Set itemList 
-	// itemList.push_back(new Scroll); 
 	itemList.push_back(new Key); 
 	itemList.push_back(new Potion);
 	itemList.push_back(new SuperPotion); 
 }
 
-Player::Player(const string playerName, int h) : Character(playerName, h) {
+Player::Player(const string playerName, int h) : Character(playerName, h), gems(0){
 	///Set actionList
 	// actionList.push_back(new Attack);
 	// actionList.push_back(new Talk);
@@ -61,5 +62,13 @@ void Player::attack(Character* attacker, Character* who) {
 
 void Player::setWeapon(Weapon* weaponType){
 	_weapon = weaponType; 
+}
+
+void Player::addGem() {
+	gem += 1;
+}
+
+int Player::getGems() {
+	return gems; 
 }
 
