@@ -2,8 +2,7 @@
  * Village.h
  *
  *  Created on: Nov 7, 2015
- *      Author: Frank Zhao
- */
+ *      Author: Blinding Eclipse
 
 #ifndef VILLAGE_H_
 #define VILLAGE_H_

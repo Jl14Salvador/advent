@@ -1,5 +1,5 @@
 /*
- * LandOfTrovald.h
+ * LandOfTorvald.h
  *
  *  Created on: Nov 2, 2015
  *      Author: Frank Zhao
@@ -24,8 +24,10 @@ public:
 	 */
 	LandOfTorvald();
 	~LandOfTorvald();
+	void run(); 
 private:
-	vector<Enviros> environmentList;
+	vector<Enviros*> environmentList;
+	Player* main; 
 };
 
 #endif /* LANDOFTORVALD_H_ */
