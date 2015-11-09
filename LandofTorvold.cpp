@@ -17,7 +17,7 @@ void LandofTorvold::run() {
 	cout << "Prepare yourself, for you will fight many battles and must become much stronger to fight greatest opponent. " << endl; 
 
 	environmentList.at(0)->run(_player);
-	//environmentList.at(1)->run(_player); 
+	//environmentList.at(1)->run(_player);
 	//environmentList.at(2)->run(_player); 
 	//environmentList.at(3)->run(_player); 
 
