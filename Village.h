@@ -24,13 +24,13 @@ public:
 	~Village();
 	void run(Player* player);
 private:
-	Enemy* john; 
-	Player* player; 
+	Enemy* john;
 	bool endGame;
 	string welcomeMsg;
 	string exitMsg;
     string readHelpFile();
- 	bool getCharAOpt();
+ 	bool getCharAOpt(Player* p);
+ 	void startFight(Player* p, Enemy* e);
 };
 
 #endif /* VILLAGE_H_ */

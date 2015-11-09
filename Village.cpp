@@ -18,7 +18,6 @@ Village::Village() {
  */
 void Village::run(Player* p){
 	cout << welcomeMsg<< endl;
-	player = p;
 	char envOpt;
 	cin >> envOpt;
 	if(envOpt == 'h'){
@@ -31,7 +30,7 @@ void Village::run(Player* p){
 	bool endEnvironment = false;
 	do
 	{
-		endEnvironment = getCharAOpt();
+		endEnvironment = getCharAOpt(p);
 		break;
 		
 	} while (!endEnvironment);
@@ -49,10 +48,9 @@ string Village::readHelpFile(){
 	return toReturn;
 }
 
-bool Village::getCharAOpt(){
+bool Village::getCharAOpt(Player* p){
 
 	cout << "While he is a nice store owner, but here are the things you can do to him." << endl;
-	cout << "a for attack, h for help, Q (uppercase Q) to quit the environment" << endl;
 	bool end = false;
 
 	char userOpt;
@@ -66,7 +64,9 @@ bool Village::getCharAOpt(){
 			end = true;
 			break;
 		case 'a':
-			while(player)
+			while(p->isAlive() && john->isAlive()){
+				startFight(p, john);
+			}
 			break;
 		case 'h':
 			cout << readHelpFile() << endl;
@@ -78,6 +78,6 @@ bool Village::getCharAOpt(){
 	return end;
 }
 
-void startFight(){
-	player->attack(john);
+void Village::startFight(Player* p, Enemy* e){
+	p->attack(e);
 }
