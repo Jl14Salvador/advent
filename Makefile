@@ -1,6 +1,6 @@
 CC=g++11
 CFLAGS=-Wall -g -std=c++11
-OBJS= advent.cpp Items.o Player.o Character.o Enemy.o Questions.o Weapon.o Village.o LandofTorvold.o Enviros.o
+OBJS= advent.cpp Items.o Player.o Character.o Enemy.o Questions.o Weapon.o LandofTorvold.o Enviros.o Forest.o
 
 PROGRAM=advent
 

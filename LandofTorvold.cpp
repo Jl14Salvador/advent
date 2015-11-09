@@ -2,9 +2,9 @@
 
 LandofTorvold::LandofTorvold() {
 
-	//environmentList.push_back(new Forest);
+	environmentList.push_back(new Forest());
 
-	environmentList.push_back(new Village());
+	// environmentList.push_back(new Village());
 	//environmentList.push_back(new Cave);
 	//environmentList.push_back(new Castle);
 	createUser(); 

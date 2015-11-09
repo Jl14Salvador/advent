@@ -2,8 +2,10 @@
 #include "Village.h"
 int main() {
 	cout << "Welcome to the Land of Torvold\n" << endl;
-	LandofTorvold L; 
-	L.run(); 
+	LandofTorvold* L = new LandofTorvold(); 
+	L->run(); 
+
+	delete L; 
 
 	return 0; 
 }

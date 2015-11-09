@@ -25,6 +25,7 @@ public:
 	void dropHealth(int amount); 
 	void increaseHealth(int amount);
 	int getHealth() const; 
+	void printHealth() const; 
 	// void attack(Character* attacker, Character* who, char attkType); 
 
 private:

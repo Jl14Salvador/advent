@@ -21,12 +21,12 @@ Player::Player(const string playerName, int h) : Character(playerName, h), gems(
 
 Player::~Player(){
 	delete _weapon; 
-	for(int i=0; i<itemList.size(); i++)
+	for(unsigned int i=0; i<itemList.size(); i++)
 		delete itemList.at(i); 
 }
 
 void Player::addItem(Items* it) {
-	for(int i=0; i < itemList.size(); i++) {
+	for(unsigned int i=0; i < itemList.size(); i++) {
 		if(it->getName() == "Bomb" && itemList.at(i)->getName() == "Bomb"){
 			std::cout<< "Adding Bomb..." << endl; 
 			itemList.at(i)->increment();
@@ -45,7 +45,7 @@ void Player::addItem(Items* it) {
 }
 
 void Player::useItem(Items* it) {
-	for(int i=0; i < itemList.size(); i++) {
+	for(unsigned int i=0; i < itemList.size(); i++) {
 		if(it->getName() == "Bomb" && itemList.at(i)->getName() == "Bomb"){
 			std::cout<< "Using Bomb..." << endl; 
 			itemList.at(i)->useItem(this);
@@ -68,7 +68,7 @@ vector<Items*> Player::getInventory() const {
 }
 
 void Player::showItems() const{
-	for(int i=0; i<itemList.size(); i++){
+	for(unsigned int i=0; i<itemList.size(); i++){
 		std::cout << "You have " << itemList.at(i)->getQuantity() << " " << itemList.at(i)->getName();
 		if(itemList.at(i)->getQuantity() == 1) 
 			cout << ".\n";

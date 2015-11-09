@@ -25,7 +25,7 @@ void Character::kill() {
 }
 
 bool Character::isAlive() {
-	if (health == 0) 
+	if (health <= 0) 
 		return false; 
 	else 
 		return true; 
@@ -42,6 +42,11 @@ void Character::increaseHealth(int amount) {
 int Character::getHealth() const {
 	return health; 
 }
+
+void Character::printHealth() const {
+	std::cout << "Your current health is: " << health << std::endl; 
+}
+
 
 /*void Character::attack(Character* attacker, Character* who, char attkType) {
 	Questions q;

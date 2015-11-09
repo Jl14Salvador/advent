@@ -1,11 +1,11 @@
 /*
- * Village.h
+ * Forest.h
  *
  *  Created on: Nov 7, 2015
  *      Author: Blinding Eclipse
 */
-#ifndef VILLAGE_H_
-#define VILLAGE_H_
+#ifndef FOREST_H_
+#define FOREST_H_
 
 #include "Enemy.h"
 #include "Enviros.h"
@@ -16,20 +16,23 @@
 #include <iostream>
 #include <fstream>
 /**
- * The class represnets a village
+ * The class represnets a Forest
  */
-class Village : public Enviros {
+class Forest : public Enviros {
 public:
-	Village();
-	~Village();
+	Forest();
+	~Forest();
 	void run(Player* player);
 private:
-	Enemy* john; 
+	Enemy* chris; 
 	bool endGame;
 	string welcomeMsg;
 	string exitMsg;
     string readHelpFile();
- 	bool getCharAOpt();
+ 	bool getCharAOpt(Player* p);
+ 	void printInstruction(); 
+ 	void printEnviroInstruct(); 
+ 	void startFight(Player* player); 
 };
 
-#endif /* VILLAGE_H_ */
+#endif /* FOREST_H_ */
