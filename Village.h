@@ -29,7 +29,8 @@ private:
 	string welcomeMsg;
 	string exitMsg;
     string readHelpFile();
- 	bool getCharAOpt();
+ 	bool getCharAOpt(Player* p);
+ 	void startFight(Player* p, Enemy* e);
 };
 
 #endif /* VILLAGE_H_ */
