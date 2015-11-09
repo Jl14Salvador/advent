@@ -61,7 +61,7 @@ bool Cave::playerSequence(Player* p){
 	cout << berners->getName() << " has attacked!" << endl;
 	bool end = false;
 
-	printEnviroInstruct();
+	this->printEnviroInstruct();
 	char userOpt;
 	cin >> userOpt;
 
@@ -94,7 +94,7 @@ void Cave::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
 	char input; 
 	do {
-		printInstruction();
+		this->printInstruction();
 		cin >> input;
 		cout << endl; 
 		switch(input){
@@ -109,13 +109,19 @@ void Cave::startFight(Player* player) {
 			case 'x':
 				player->printHealth();  	
 				break; 
+			case 's':
+				player->useItem(new SuperPotion);
+				break; 
+			case 'b':
+				player->useItem(new Bomb);
+				break; 	
 			default:
 			std::cout << "Chose wrong option, please try again"; 
 		}
 	}while(player->isAlive() && berners->isAlive());
 }
 
-void Cave::printInstruction() {
+/*void Cave::printInstruction() {
 	cout << "\nPress i to show your inventory list:" << endl;
 	cout << "Press a to attack: " << endl; 
 	cout << "Press p to use potion: " << endl; 
@@ -130,4 +136,4 @@ void Cave::printEnviroInstruct() {
 	cout << "a will start the fight" << endl;
 	cout << "h will read the help file" << endl; 
 	cout << "What would you like to do: ";
-}
+}*/

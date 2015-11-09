@@ -30,8 +30,6 @@ private:
 	string exitMsg;
     string readHelpFile();
  	bool playerSequence(Player* p);
- 	void printInstruction(); 
- 	void printEnviroInstruct(); 
  	void startFight(Player* player); 
 };
 

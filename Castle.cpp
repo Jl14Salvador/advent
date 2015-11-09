@@ -61,7 +61,7 @@ bool Castle::playerSequence(Player* p){
 	cout << "There he is! King" << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
 	bool end = false;
 
-	printEnviroInstruct();
+	this->printEnviroInstruct();
 	char userOpt;
 	cin >> userOpt;
 
@@ -94,7 +94,7 @@ void Castle::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
 	char input; 
 	do {
-		printInstruction();
+		this->printInstruction();
 		cin >> input;
 		cout << endl; 
 		switch(input){
@@ -109,25 +109,14 @@ void Castle::startFight(Player* player) {
 			case 'x':
 				player->printHealth();  	
 				break; 
+			case 's':
+				player->useItem(new SuperPotion);
+				break; 
+			case 'b':
+				player->useItem(new Bomb);
+				break; 	
 			default:
 			std::cout << "Chose wrong option, please try again"; 
 		}
 	}while(player->isAlive() && ledorf->isAlive());
-}
-
-void Castle::printInstruction() {
-	cout << "\nPress i to show your inventory list:" << endl;
-	cout << "Press a to attack: " << endl; 
-	cout << "Press p to use potion: " << endl; 
-	cout << "Press b to use bomb: " << endl; 
-	cout << "Press s to use superPotion: " << endl; 
-	cout << "Press x to view current health: " << endl; 
-	cout << "What would you like to do: "; 
-}
-
-void Castle::printEnviroInstruct() {
-	cout << "\nQ will exit the environment" << endl;
-	cout << "a will start the fight" << endl;
-	cout << "h will read the help file" << endl; 
-	cout << "What would you like to do: ";
 }

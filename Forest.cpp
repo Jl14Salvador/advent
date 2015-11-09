@@ -61,11 +61,10 @@ bool Forest::playerSequence(Player* p){
 	cout << magnus->getName() << " says, 'you will never defeat the legendary Dragon! Not unless you go through me!'" << endl;
 	bool end = false;
 
-	printEnviroInstruct();
+	this->printEnviroInstruct();
 	char userOpt;
 	cin >> userOpt;
 
-	///do io data sanitization 
 	bool valid_choice = true; 
 	while(valid_choice){
 		switch(userOpt){
@@ -94,7 +93,7 @@ void Forest::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
 	char input; 
 	do {
-		printInstruction();
+		this->printInstruction();
 		cin >> input;
 		cout << endl; 
 		switch(input){
@@ -106,28 +105,18 @@ void Forest::startFight(Player* player) {
 				break; 
 			case 'p':
 				player->useItem(new Potion);
+				break; 
 			case 'x':
-				player->printHealth();  	
+				player->printHealth(); 
+				break; 
+			case 's':
+				player->useItem(new SuperPotion);
+				break; 
+			case 'b':
+				player->useItem(new Bomb);
 				break; 
 			default:
 			std::cout << "Chose wrong option, please try again"; 
 		}
 	}while(player->isAlive() && magnus->isAlive());
-}
-
-void Forest::printInstruction() {
-	cout << "\nPress i to show your inventory list:" << endl;
-	cout << "Press a to attack: " << endl; 
-	cout << "Press p to use potion: " << endl; 
-	cout << "Press b to use bomb: " << endl; 
-	cout << "Press s to use superPotion: " << endl; 
-	cout << "Press x to view current health: " << endl; 
-	cout << "What would you like to do: "; 
-}
-
-void Forest::printEnviroInstruct() {
-	cout << "\nQ will exit the environment" << endl;
-	cout << "a will start the fight" << endl;
-	cout << "h will read the help file" << endl; 
-	cout << "What would you like to do: ";
 }

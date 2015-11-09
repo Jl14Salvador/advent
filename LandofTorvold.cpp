@@ -19,6 +19,7 @@ void LandofTorvold::run() {
 	environmentList.at(1)->run(_player); 
 	environmentList.at(2)->run(_player); 
 	environmentList.at(3)->run(_player); 
+	bossBattle(); 
 
 	cout << "You have defeated Smaug, the merciless Dragon, you win the Game!" << endl; 
 	for(int i=0; i<9; i++)
@@ -29,10 +30,60 @@ void LandofTorvold::createUser() {
 	cout << "Please enter your name: "; 
 	string name; 
     cin >> name; 
-	_player = new Player(name, 200);
+	_player = new Player(name, 500);
 }
 
 void LandofTorvold::bossBattle() {
-
+	cout << "You've encountered Smaug the dragon, its time to fight!!!" << endl; 
+	cout << "He's been waiting for you, but you now have the Master Sword and the power of all the gems" << endl; 
+	startFight(_player); 
 }
 
+void LandofTorvold::startFight(Player* player) {
+	cout << "Battle entered:" << endl; 
+	char input; 
+	do {
+		printInstruction();
+		cin >> input;
+		cout << endl; 
+		switch(input){
+			case 'i':
+				player->showItems(); 
+				break;
+			case 'a':
+				player->attack(smaug); 
+				break; 
+			case 'p':
+				player->useItem(new Potion);
+				break;
+			case 'x':
+				player->printHealth();  
+				break;
+			case 's':
+				player->useItem(new SuperPotion);
+				break; 
+			case 'b':
+				player->useItem(new Bomb);
+				break; 	
+			default:
+			std::cout << "Chose wrong option, please try again"; 
+		}
+	}while(player->isAlive() && smaug->isAlive());
+}
+
+void LandofTorvold::printInstruction(){
+	cout << "\nPress i to show your inventory list:" << endl;
+	cout << "Press a to attack: " << endl; 
+	cout << "Press p to use potion: " << endl; 
+	cout << "Press b to use bomb: " << endl; 
+	cout << "Press s to use superPotion: " << endl; 
+	cout << "Press x to view current health: " << endl; 
+	cout << "What would you like to do: "; 
+}
+
+void LandofTorvold::printEnviroInstruct() {
+	cout << "\nQ will exit the environment" << endl;
+	cout << "a will start the fight" << endl;
+	cout << "h will read the help file" << endl; 
+	cout << "What would you like to do: ";
+}

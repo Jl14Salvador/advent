@@ -60,7 +60,7 @@ bool Village::playerSequence(Player* p){
 	cout << dijistra->getName() << " wants to attack!" << endl;
 	bool end = false;
 
-	printEnviroInstruct();
+	this->printEnviroInstruct();
 	char userOpt;
 	cin >> userOpt;
 
@@ -93,7 +93,7 @@ void Village::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
 	char input; 
 	do {
-		printInstruction();
+		this->printInstruction();
 		cin >> input;
 		cout << endl; 
 		switch(input){
@@ -108,13 +108,19 @@ void Village::startFight(Player* player) {
 			case 'x':
 				player->printHealth();  	
 				break; 
+			case 's':
+				player->useItem(new SuperPotion);
+				break; 
+			case 'b':
+				player->useItem(new Bomb);
+				break; 
 			default:
 			std::cout << "Chose wrong option, please try again"; 
 		}
 	}while(player->isAlive() && dijistra->isAlive());
 }
 
-void Village::printInstruction() {
+/*void Village::printInstruction() {
 	cout << "\nPress i to show your inventory list:" << endl;
 	cout << "Press a to attack: " << endl; 
 	cout << "Press p to use potion: " << endl; 
@@ -129,4 +135,4 @@ void Village::printEnviroInstruct() {
 	cout << "a will start the fight" << endl;
 	cout << "h will read the help file" << endl; 
 	cout << "What would you like to do: ";
-}
+}*/

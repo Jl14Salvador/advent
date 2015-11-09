@@ -21,7 +21,7 @@ using namespace std;
 
 
 /**
- * This represents the adventure game
+ * This represents the class that will run the whole game
  */
 
 
@@ -30,17 +30,20 @@ public:
 	/*
 	 * sets up the environment, with a player, with welcome message 
 	 */
-	LandofTorvold();
+	LandofTorvold(); 
 	~LandofTorvold(){}
 	void run(); 
-	void createUser(); 
-	//void bossBattle();
+
 
 private:
 	vector<Enviros*> environmentList;
 	Player* _player; 
 	void bossBattle();
 	Enemy* smaug; 
+	void createUser(); 
+	void startFight(Player* player);
+	void printInstruction(); 
+	void printEnviroInstruct(); 
 };
 
 #endif /* LANDOFTORVOLD_H_ */

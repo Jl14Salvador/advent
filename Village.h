@@ -10,6 +10,7 @@
 #include "Enemy.h"
 #include "Enviros.h"
 #include "Player.h"
+#include "LandofTorvold.h"
 
 #include <string>
 #include <vector>
@@ -30,8 +31,6 @@ private:
 	string exitMsg;
     string readHelpFile();
  	bool playerSequence(Player* p);
- 	void printInstruction(); 
- 	void printEnviroInstruct(); 
  	void startFight(Player* player); 
 };
 
