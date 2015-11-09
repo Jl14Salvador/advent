@@ -1,0 +1,87 @@
+\hypertarget{classPlayer}{
+\section{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+}
+
+
+{\ttfamily \#include $<$Player.h$>$}Inheritance diagram for Player::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPlayer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPlayer_a8d83d0f0e6ff61b2003b9769c8be3f88}{Player} (const string playerName)
+\begin{DoxyCompactList}\small\item\em Constructors and Destructors. \item\end{DoxyCompactList}\item 
+\hyperlink{classPlayer_a25291eed6de2d4ffe9f72422c79af64c}{Player} (const string playerName, int h)
+\item 
+\hypertarget{classPlayer_a5eabedb92d98c4b70fa2b1882404f058}{
+void \hyperlink{classPlayer_a5eabedb92d98c4b70fa2b1882404f058}{addItem} (\hyperlink{classItems}{Items} $\ast$i)}
+\label{classPlayer_a5eabedb92d98c4b70fa2b1882404f058}
+
+\begin{DoxyCompactList}\small\item\em Adds an item of type object to the \hyperlink{classPlayer}{Player} by incremeting the quantity of that specific item in its itemList. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a704c8bad5a62ecf3a0e07a091380ff58}{
+void \hyperlink{classPlayer_a704c8bad5a62ecf3a0e07a091380ff58}{useItem} (\hyperlink{classItems}{Items} $\ast$i)}
+\label{classPlayer_a704c8bad5a62ecf3a0e07a091380ff58}
+
+\begin{DoxyCompactList}\small\item\em Uses an item by calling the useItem method in its appropriate position in the vector itemList. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a896a4cdfdc5f616c32e5b2ac2cb6b72f}{
+vector$<$ \hyperlink{classItems}{Items} $\ast$ $>$ \hyperlink{classPlayer_a896a4cdfdc5f616c32e5b2ac2cb6b72f}{getInventory} () const }
+\label{classPlayer_a896a4cdfdc5f616c32e5b2ac2cb6b72f}
+
+\begin{DoxyCompactList}\small\item\em Returns the Vector of items available to the \hyperlink{classPlayer}{Player}. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a70d4c5eb304121aaa606569d522cf1ba}{
+void \hyperlink{classPlayer_a70d4c5eb304121aaa606569d522cf1ba}{showItems} () const }
+\label{classPlayer_a70d4c5eb304121aaa606569d522cf1ba}
+
+\begin{DoxyCompactList}\small\item\em Outputs the items and their quantities to the screen. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a933947160a754eebca73275b8d45ae38}{
+void \hyperlink{classPlayer_a933947160a754eebca73275b8d45ae38}{attack} (\hyperlink{classCharacter}{Character} $\ast$who)}
+\label{classPlayer_a933947160a754eebca73275b8d45ae38}
+
+\begin{DoxyCompactList}\small\item\em Attack method that passes who will be attacked. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a0c4b8585e95d3092ec4d0f852091f12a}{
+void \hyperlink{classPlayer_a0c4b8585e95d3092ec4d0f852091f12a}{setWeapon} (\hyperlink{classWeapon}{Weapon} $\ast$weaponType)}
+\label{classPlayer_a0c4b8585e95d3092ec4d0f852091f12a}
+
+\begin{DoxyCompactList}\small\item\em Sets the weaponType of the \hyperlink{classPlayer}{Player}, will change its attack behaviour. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_ad024eb2882ef89b6453364470d80b11e}{
+void \hyperlink{classPlayer_ad024eb2882ef89b6453364470d80b11e}{addGem} ()}
+\label{classPlayer_ad024eb2882ef89b6453364470d80b11e}
+
+\begin{DoxyCompactList}\small\item\em Increments gem. \item\end{DoxyCompactList}\item 
+\hypertarget{classPlayer_a8064e25e14fb457b8229be32789add62}{
+int \hyperlink{classPlayer_a8064e25e14fb457b8229be32789add62}{getGems} () const }
+\label{classPlayer_a8064e25e14fb457b8229be32789add62}
+
+\begin{DoxyCompactList}\small\item\em Retrives the amount of gems as an integer value. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This represents the player of the game that interact with the rest of the system 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPlayer_a8d83d0f0e6ff61b2003b9769c8be3f88}{
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player::Player (const string {\em playerName})}}
+\label{classPlayer_a8d83d0f0e6ff61b2003b9769c8be3f88}
+
+
+Constructors and Destructors. 
+
+Set itemList \hypertarget{classPlayer_a25291eed6de2d4ffe9f72422c79af64c}{
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player::Player (const string {\em playerName}, \/  int {\em h})}}
+\label{classPlayer_a25291eed6de2d4ffe9f72422c79af64c}
+
+
+Set itemList 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Player.h\item 
+Player.cpp\end{DoxyCompactItemize}

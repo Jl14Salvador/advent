@@ -1,0 +1,51 @@
+\hypertarget{classBomb}{
+\section{Bomb Class Reference}
+\label{classBomb}\index{Bomb@{Bomb}}
+}
+Inheritance diagram for Bomb::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classBomb}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBomb_a5805401b6cfbb451cf31ebd4851740cf}{
+\hyperlink{classBomb_a5805401b6cfbb451cf31ebd4851740cf}{Bomb} ()}
+\label{classBomb_a5805401b6cfbb451cf31ebd4851740cf}
+
+\begin{DoxyCompactList}\small\item\em Constructors and Destructors. \item\end{DoxyCompactList}\item 
+\hypertarget{classBomb_a7756be7b4e8425c84b27f98b39624b59}{
+std::string \hyperlink{classBomb_a7756be7b4e8425c84b27f98b39624b59}{getName} () const }
+\label{classBomb_a7756be7b4e8425c84b27f98b39624b59}
+
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the item. \item\end{DoxyCompactList}\item 
+\hypertarget{classBomb_a24f4bc2a846224e23a3e0a9ebd7011ee}{
+int \hyperlink{classBomb_a24f4bc2a846224e23a3e0a9ebd7011ee}{getQuantity} () const }
+\label{classBomb_a24f4bc2a846224e23a3e0a9ebd7011ee}
+
+\begin{DoxyCompactList}\small\item\em Retries the quantity of Bombs. \item\end{DoxyCompactList}\item 
+void \hyperlink{classBomb_ae0472ffdfeb98f780e8c63967d4e81ed}{useItem} (\hyperlink{classPlayer}{Player} $\ast$who)
+\item 
+\hypertarget{classBomb_aea5f2bb72dec8d3c9346bd9398ab4eaa}{
+void \hyperlink{classBomb_aea5f2bb72dec8d3c9346bd9398ab4eaa}{increment} ()}
+\label{classBomb_aea5f2bb72dec8d3c9346bd9398ab4eaa}
+
+\begin{DoxyCompactList}\small\item\em Increase the quantity of Bombs. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBomb_ae0472ffdfeb98f780e8c63967d4e81ed}{
+\index{Bomb@{Bomb}!useItem@{useItem}}
+\index{useItem@{useItem}!Bomb@{Bomb}}
+\subsubsection[{useItem}]{\setlength{\rightskip}{0pt plus 5cm}void Bomb::useItem ({\bf Player} $\ast$ {\em who})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classBomb_ae0472ffdfeb98f780e8c63967d4e81ed}
+Method that use the item on the player object that is passed into it, logic for the bomb is done in here Decreases quantity of item 
+
+Implements \hyperlink{classItems}{Items}.
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Items.h\item 
+Items.cpp\end{DoxyCompactItemize}

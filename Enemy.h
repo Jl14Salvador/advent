@@ -15,9 +15,12 @@ class Items; //forward declaration
 
 class Enemy : public Character {
 public:
+	///Constructors and Destructors
 	Enemy(const std::string enemyName, int h);
 	Enemy(const std::string enemyName, int h, Items* i);
 	~Enemy();
+
+	///This passes the object _item that the Enemy has and gives it to the Player object
 	Player* giveItem(Player* who);
 
 private:
