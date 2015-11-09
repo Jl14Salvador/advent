@@ -10,16 +10,15 @@ using namespace std;
 Village::Village() {
 	john = new Enemy("John", 200);
 	endGame = false;
-	welcomeMsg = "You have entered the village of Carstarirs. Enter 'h' to get help.\nPress 'Enter' key to continue playing...";
+	welcomeMsg = "Enter 'h' to get help.\nPress 'Enter' key to continue playing...";
 	exitMsg = "You have exited the village.";
 }
-
 /**
  * This method executes the logics of the village chapter
  */
-void Village::run(Player* player){
+void Village::run(Player* p){
 	cout << welcomeMsg<< endl;
-
+	player = p;
 	char envOpt;
 	cin >> envOpt;
 	if(envOpt == 'h'){
@@ -67,7 +66,7 @@ bool Village::getCharAOpt(){
 			end = true;
 			break;
 		case 'a':
-			player->attack(john);
+			while(player)
 			break;
 		case 'h':
 			cout << readHelpFile() << endl;
@@ -80,5 +79,5 @@ bool Village::getCharAOpt(){
 }
 
 void startFight(){
-	
+	player->attack(john);
 }
