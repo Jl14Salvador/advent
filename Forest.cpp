@@ -8,7 +8,7 @@
 using namespace std;
 
 Forest::Forest() {
-	chris = new Enemy("Chris", 400);
+	magnus = new Enemy("Magnus", 300);
 	endGame = false;
 	welcomeMsg = "You have entered the Forest";
 	exitMsg = "You are now leaving the Forest."; 
@@ -18,13 +18,13 @@ Forest::Forest() {
  */
 void Forest::run(Player* p){
 	cout << welcomeMsg<< endl;
-	cout << "There's nobody in sight. The forest is very dark, an enemy appears" << endl; 
-	cout << "He wants to attack!" << endl;
+	cout << "The forest is full of dense trees and has an eerie feel to it. " << endl; 
+	cout << "You see the remains of a fallen hero, holding a note, it reads 'Go Back, DANGER LIES AHEAD!' " << endl;
 	
 	bool endEnvironment = false;
 	do
 	{
-		endEnvironment = getCharAOpt(p);
+		endEnvironment = playerSequence(p);
 		break;
 		
 	} while (!endEnvironment);
@@ -39,6 +39,8 @@ void Forest::run(Player* p){
 	cout << "You now wield the power of ice! Ice Attack inherited! Attack damage increased." << endl; 
 	p->setWeapon(new IceAttk); 
 	cout << exitMsg << endl; 
+	cout << "******************************************************************************************" << endl; 
+
 }
 
 string Forest::readHelpFile(){
@@ -53,10 +55,10 @@ string Forest::readHelpFile(){
 	return toReturn;
 }
 
-bool Forest::getCharAOpt(Player* p){
+bool Forest::playerSequence(Player* p){
 
-	cout << "There's nobdy in sight. The forest s very dark, an enemy appears!" << endl;
-	cout << "He tries to attack!" << endl;
+	cout << "Magnus, a sorcerer from the Ancient Mountains of Rai has approached you" << endl;
+	cout << magnus->getName() << " says, 'you will never defeat the legendary Dragon! Not unless you go through me!'" << endl;
 	bool end = false;
 
 	printEnviroInstruct();
@@ -100,7 +102,7 @@ void Forest::startFight(Player* player) {
 				player->showItems(); 
 				break;
 			case 'a':
-				player->attack(chris); 
+				player->attack(magnus); 
 				break; 
 			case 'p':
 				player->useItem(new Potion);
@@ -110,13 +112,15 @@ void Forest::startFight(Player* player) {
 			default:
 			std::cout << "Chose wrong option, please try again"; 
 		}
-	}while(player->isAlive() && chris->isAlive());
+	}while(player->isAlive() && magnus->isAlive());
 }
 
 void Forest::printInstruction() {
 	cout << "\nPress i to show your inventory list:" << endl;
 	cout << "Press a to attack: " << endl; 
 	cout << "Press p to use potion: " << endl; 
+	cout << "Press b to use bomb: " << endl; 
+	cout << "Press s to use superPotion: " << endl; 
 	cout << "Press x to view current health: " << endl; 
 	cout << "What would you like to do: "; 
 }

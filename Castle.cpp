@@ -1,11 +1,133 @@
-#include "Enviros.h"
-#include "Player.h"
+/*
+ * Castle.cpp
+ *
+ *  Created on: Nov 7, 2015
+ *      Author: Blinding Eclipse
+ */
+#include "Castle.h"
+using namespace std;
 
 Castle::Castle() {
+	ledorf = new Enemy("King Ledorf", 300);
+	endGame = false;
+	welcomeMsg = "You have entered the Castle";
+	exitMsg = "You are now leaving the Castle."; 
+}
+/**
+ * This method executes the logics of the Castle chapter
+ */
+void Castle::run(Player* p){
+	cout << welcomeMsg<< endl;
+	cout << "The castle is massive. It is the largest building you have ever seen. " << endl; 
+	cout << "Its bricks stretch across the vast Mountain range, this where the final gem lies. " << endl;
+	
+	bool endEnvironment = false;
+	do
+	{
+		endEnvironment = playerSequence(p);
+		break;
+		
+	} while (!endEnvironment);
+
+	cout << "\nYou have obtained the Rainbow gem! Congratulations, you have obtained all four gems! You can now fight the Dragon!" << endl; 
+	p->addGem(); 
+	cout << "You now have " << p->getGems(); 
+	if (p->getGems() == 1)
+		cout << " gem." << endl; 
+	else 
+		cout << " gems." << endl; 
+	cout << "You now wield the Master Sword! You now have the most powerful weapon known to man! Attack damage at maximum." << endl; 
+	p->setWeapon(new MasterSword); 
+	cout << exitMsg << endl; 
+	cout << "******************************************************************************************" << endl; 
 
 }
 
-///This will run the Castle
-void Caste::run() {
-	std::cout << "Castle is run" << endl; 	
+string Castle::readHelpFile(){
+
+	ifstream file("help.txt");
+	string toReturn;
+	string currentLine;
+	while(getline(file, currentLine)){
+		toReturn += currentLine + "\n";
+	}
+
+	return toReturn;
+}
+
+bool Castle::playerSequence(Player* p){
+
+	cout << "This is the home of King Ledorf, the strongest human being in all of Torvold. " << endl;
+	cout << "There he is! King" << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
+	bool end = false;
+
+	printEnviroInstruct();
+	char userOpt;
+	cin >> userOpt;
+
+	///do io data sanitization 
+	bool valid_choice = true; 
+	while(valid_choice){
+		switch(userOpt){
+			case 'Q':
+				cout << exitMsg << endl;
+				valid_choice = false;
+				end = true;
+				break;
+			case 'a':
+				startFight(p);
+				valid_choice = false;
+				end = true;
+				break;
+			case 'h':
+				cout << readHelpFile() << endl;
+				break;
+			default:
+				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
+				valid_choice = false; 
+		}
+	}
+	return end;
+}
+
+void Castle::startFight(Player* player) {
+	cout << "Battle entered:" << endl; 
+	char input; 
+	do {
+		printInstruction();
+		cin >> input;
+		cout << endl; 
+		switch(input){
+			case 'i':
+				player->showItems(); 
+				break;
+			case 'a':
+				player->attack(ledorf); 
+				break; 
+			case 'p':
+				player->useItem(new Potion);
+			case 'x':
+				player->printHealth();  	
+				break; 
+			default:
+			std::cout << "Chose wrong option, please try again"; 
+		}
+	}while(player->isAlive() && ledorf->isAlive());
+}
+
+void Castle::printInstruction() {
+	cout << "\nPress i to show your inventory list:" << endl;
+	cout << "Press a to attack: " << endl; 
+	cout << "Press p to use potion: " << endl; 
+	cout << "Press b to use bomb: " << endl; 
+	cout << "Press s to use superPotion: " << endl; 
+	cout << "Press x to view current health: " << endl; 
+	cout << "What would you like to do: "; 
+}
+
+void Castle::printEnviroInstruct() {
+	cout << "\nQ will exit the environment" << endl;
+	cout << "a will start the fight" << endl;
+	cout << "h will read the help file" << endl; 
+	cout << "What would you like to do: ";
 }

@@ -21,15 +21,15 @@
 class Forest : public Enviros {
 public:
 	Forest();
-	~Forest();
+	~Forest(){}
 	void run(Player* player);
 private:
-	Enemy* chris; 
+	Enemy* magnus;
 	bool endGame;
 	string welcomeMsg;
 	string exitMsg;
     string readHelpFile();
- 	bool getCharAOpt(Player* p);
+ 	bool playerSequence(Player* p);
  	void printInstruction(); 
  	void printEnviroInstruct(); 
  	void startFight(Player* player); 

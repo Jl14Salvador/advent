@@ -4,8 +4,8 @@
  *  Created on: Nov 7, 2015
  *      Author: Blinding Eclipse
 */
-#ifndef VILLAGE_H
-#define VILLAGE_H
+#ifndef CAVE_H
+#define CAVE_H
 
 #include "Enemy.h"
 #include "Enviros.h"
@@ -16,15 +16,15 @@
 #include <iostream>
 #include <fstream>
 /**
- * The class represnets a Village
+ * The class represnets a Forest
  */
-class Village : public Enviros {
+class Cave : public Enviros {
 public:
-	Village();
-	~Village(){}
+	Cave();
+	~Cave(){}
 	void run(Player* player);
 private:
-	Enemy* dijistra; 
+	Enemy* berners; 
 	bool endGame;
 	string welcomeMsg;
 	string exitMsg;
@@ -35,4 +35,4 @@ private:
  	void startFight(Player* player); 
 };
 
-#endif /* VILLAGE_H */
+#endif /* CAVE_H */

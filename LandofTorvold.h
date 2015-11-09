@@ -13,9 +13,11 @@
 #include <vector>
 #include "Player.h"
 #include "Village.h"
-using namespace std;
 #include "Forest.h"
+#include "Cave.h"
+#include "Castle.h"
 
+using namespace std;
 
 
 /**
@@ -38,6 +40,7 @@ private:
 	vector<Enviros*> environmentList;
 	Player* _player; 
 	void bossBattle();
+	Enemy* smaug; 
 };
 
 #endif /* LANDOFTORVOLD_H_ */

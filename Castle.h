@@ -1,11 +1,11 @@
 /*
- * Forest.h
+ * Castle.h
  *
  *  Created on: Nov 7, 2015
  *      Author: Blinding Eclipse
 */
-#ifndef VILLAGE_H
-#define VILLAGE_H
+#ifndef CASTLE_H
+#define CASTLE_H
 
 #include "Enemy.h"
 #include "Enviros.h"
@@ -16,15 +16,15 @@
 #include <iostream>
 #include <fstream>
 /**
- * The class represnets a Village
+ * The class represnets a Castle
  */
-class Village : public Enviros {
+class Castle : public Enviros {
 public:
-	Village();
-	~Village(){}
+	Castle();
+	~Castle(){}
 	void run(Player* player);
 private:
-	Enemy* dijistra; 
+	Enemy* ledorf; 
 	bool endGame;
 	string welcomeMsg;
 	string exitMsg;
@@ -35,4 +35,4 @@ private:
  	void startFight(Player* player); 
 };
 
-#endif /* VILLAGE_H */
+#endif /* CASTLE_H */
