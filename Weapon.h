@@ -13,7 +13,7 @@
 class Weapon {
 public:
 	Weapon(){};
-	~Weapon(){};
+	virtual ~Weapon(){};
 	virtual void attack(Character* attacker, Character* who) = 0; 
 
 private: 

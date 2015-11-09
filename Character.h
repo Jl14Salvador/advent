@@ -17,7 +17,7 @@ class Character {
 public:
 	Character(const std::string CharacterName);
 	Character(const std::string CharacterName, int h); 
-	virtual ~Character();
+	virtual ~Character(){};
 	std::string getName() const; 	
 	void setName(std::string n);
  	bool isAlive();

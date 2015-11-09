@@ -6,6 +6,10 @@ Enemy::Enemy(const std::string enemyName, int h)
 Enemy::Enemy(const std::string enemyName, int h, Items* i)
 : Character(enemyName, h), _item(i) {}
 
+Enemy::~Enemy(){
+	delete _item; 
+}
+
 Player* Enemy::giveItem(Player* who){
 	if(_item != NULL){
 		who->addItem(_item);

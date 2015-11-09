@@ -11,10 +11,6 @@ Character::Character(const std::string CharacterName, int h) {
 	name = CharacterName; 
 }
 
-Character::~Character() {
-	//delete Character
-}
-
 std::string Character::getName() const {
 	return name;
 }

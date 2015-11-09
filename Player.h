@@ -25,7 +25,7 @@ class Player : public Character {
 public:
 	Player(const string playerName);
 	Player(const string playerName, int h);
-	~Player(){};
+	~Player();
 
 	void addItem(Items* i);
 	void useItem(Items* i); 

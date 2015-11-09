@@ -19,6 +19,12 @@ Player::Player(const string playerName, int h) : Character(playerName, h), gems(
 	itemList.push_back(new SuperPotion); 
 }
 
+Player::~Player(){
+	delete _weapon; 
+	for(int i=0; i<itemList.size(); i++)
+		delete itemList.at(i); 
+}
+
 void Player::addItem(Items* it) {
 	for(int i=0; i < itemList.size(); i++) {
 		if(it->getName() == "Bomb" && itemList.at(i)->getName() == "Bomb"){
@@ -57,16 +63,6 @@ void Player::useItem(Items* it) {
 	}	
 }
 
-/*int Player::hasKey() {
-	for(int i=0; i < itemList.size(); i++ ) {
-		if(itemList.at(i)->getName() == "Key") {
-			return itemList.at(i)->getQuantity(); 
-			break;
-		}
-	}
-	return 0; 
-}*/
-
 vector<Items*> Player::getInventory() const {
 	return itemList; 
 }
@@ -81,7 +77,6 @@ void Player::showItems() const{
 	}
 
 }
-
 
 void Player::attack(Character* who) {
 	_weapon->attack(this, who); 
