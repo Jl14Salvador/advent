@@ -5,32 +5,34 @@
  *      Author: Frank Zhao
  */
 
-#ifndef LANDOFTORVALD_H_
-#define LANDOFTORVALD_H_
+#ifndef LANDOFTORVOLD_H_
+#define LANDOFTORVOLD_H_
 
 #include <iostream>
 #include "Enviros.h"
 #include <vector>
-
+#include "Player.h"
+ #include "Village.h"
 using namespace std;
 
 /**
  * This represents the adventure game
  */
-class LandOfTorvald{
+class LandofTorvold{
 public:
 	/*
 	 * sets up the environment, with a player, with welcome message 
 	 */
-	LandOfTorvald();
-	~LandOfTorvald(){}
+	LandofTorvold();
+	~LandofTorvold(){}
 	void run(); 
 	void createUser(); 
-	void bossBattle();
+	//void bossBattle();
 
 private:
 	vector<Enviros*> environmentList;
 	Player* _player; 
+	void bossBattle();
 };
 
-#endif /* LANDOFTORVALD_H_ */
+#endif /* LANDOFTORVOLD_H_ */
