@@ -18,10 +18,13 @@ Village::Village() {
  * This method executes the logics of the village chapter
  */
 void Village::run(Player* player){
-
-	cout << "DEBUG MSG: Village is run" << endl; 
-
 	cout << welcomeMsg<< endl;
+
+	char envOpt;
+	cin >> envOpt;
+	if(envOpt == 'h'){
+		readHelpFile();
+	}
 
 	string storyMsgA = "Hmmm! That guy wearing funny clothes is leaning by his truck. He looks suspicious. What do you want to do?";
 	cout << "He's name is John, he is the convenient store owner." << endl;
@@ -49,6 +52,8 @@ string Village::readHelpFile(){
 
 bool Village::getCharAOpt(){
 
+	cout << "While he is a nice store owner, but here are the things you can do to him." << endl;
+	cout << "a for attack, h for help, Q (uppercase Q) to quit the environment" << endl;
 	bool end = false;
 
 	char userOpt;
@@ -62,7 +67,7 @@ bool Village::getCharAOpt(){
 			end = true;
 			break;
 		case 'a':
-			player -> attack(john);
+			player->attack(john);
 			break;
 		case 'h':
 			cout << readHelpFile() << endl;
