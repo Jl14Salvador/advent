@@ -28,18 +28,21 @@ void Forest::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-
-	cout << "\nYou have obtained the ice gem! Congratulations, you can now move on to the next environment" << endl; 
-	p->addGem(); 
-	cout << "You now have " << p->getGems(); 
-	if (p->getGems() == 1)
-		cout << " gem." << endl; 
-	else 
-		cout << " gems." << endl; 
-	cout << "You now wield the power of ice! Ice Attack inherited! Attack damage increased." << endl; 
-	p->setWeapon(new IceAttk); 
-	cout << exitMsg << endl; 
-	cout << "******************************************************************************************" << endl; 
+	if(p->isAlive()) {
+		cout << "\nYou have obtained the ice gem! Congratulations, you can now move on to the next environment" << endl; 
+		p->addGem(); 
+		cout << "You now have " << p->getGems(); 
+		if (p->getGems() == 1)
+			cout << " gem." << endl; 
+		else 
+			cout << " gems." << endl; 
+		cout << "You now wield the power of ice! Ice Attack inherited! Attack damage increased." << endl; 
+		p->setWeapon(new IceAttk); 
+		cout << exitMsg << endl; 
+		cout << "******************************************************************************************" << endl; 
+	}
+	else
+		cout << "You have failed to pass this environment." << endl; 
 
 }
 

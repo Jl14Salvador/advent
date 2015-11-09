@@ -21,7 +21,7 @@ void Character::setName(std::string n) {
 
 void Character::kill() {
 	health = 0; 
-	std::cout << this->getName() << " is dead!\n";
+	std::cout << " " << this->getName() << " is dead!\n";
 }
 
 bool Character::isAlive() {

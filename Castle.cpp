@@ -28,19 +28,21 @@ void Castle::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-
-	cout << "\nYou have obtained the Rainbow gem! Congratulations, you have obtained all four gems! You can now fight the Dragon!" << endl; 
-	p->addGem(); 
-	cout << "You now have " << p->getGems(); 
-	if (p->getGems() == 1)
-		cout << " gem." << endl; 
-	else 
-		cout << " gems." << endl; 
-	cout << "You now wield the Master Sword! You now have the most powerful weapon known to man! Attack damage at maximum." << endl; 
-	p->setWeapon(new MasterSword); 
-	cout << exitMsg << endl; 
-	cout << "******************************************************************************************" << endl; 
-
+	if(p->isAlive()){
+		cout << "\nYou have obtained the Rainbow gem! Congratulations, you have obtained all four gems! You can now fight the Dragon!" << endl; 
+		p->addGem(); 
+		cout << "You now have " << p->getGems(); 
+		if (p->getGems() == 1)
+			cout << " gem." << endl; 
+		else 
+			cout << " gems." << endl; 
+		cout << "You now wield the Master Sword! You now have the most powerful weapon known to man! Attack damage at maximum." << endl; 
+		p->setWeapon(new MasterSword); 
+		cout << exitMsg << endl; 
+		cout << "******************************************************************************************" << endl; 
+	}
+	else
+		cout << "You have failed to pass this environment." << endl; 
 }
 
 string Castle::readHelpFile(){
