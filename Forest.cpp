@@ -66,7 +66,6 @@ bool Forest::getCharAOpt(Player* p){
 	///do io data sanitization 
 	bool valid_choice = true; 
 	while(valid_choice){
-		// cout << "while looop valid choice happening"; 
 		switch(userOpt){
 			case 'Q':
 				cout << exitMsg << endl;
@@ -75,7 +74,6 @@ bool Forest::getCharAOpt(Player* p){
 				break;
 			case 'a':
 				startFight(p);
-				// cout << "startfight happens";
 				valid_choice = false;
 				end = true;
 				break;
