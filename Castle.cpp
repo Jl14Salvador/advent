@@ -5,13 +5,14 @@
  *      Author: Blinding Eclipse
  */
 #include "Castle.h"
+ #include "Text.cpp"
 using namespace std;
 
 Castle::Castle() {
 	ledorf = new Enemy("King Ledorf", 300);
-	endGame = false;
-	welcomeMsg = "You have entered the Castle";
-	exitMsg = "You are now leaving the Castle."; 
+	quit = false;
+	welcomeMsg = "\nYou have entered the Castle";
+	exitMsg = "You are now leaving the Castle.\n"; 
 }
 /**
  * This method executes the logics of the Castle chapter
@@ -28,7 +29,7 @@ void Castle::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive()){
+	if(p->isAlive() && quit == false){
 		cout << "\nYou have obtained the Rainbow gem! Congratulations, you have obtained all four gems! You can now fight the Dragon!" << endl; 
 		p->addGem(); 
 		cout << "You now have " << p->getGems(); 
@@ -62,19 +63,17 @@ bool Castle::playerSequence(Player* p){
 	cout << "This is the home of King Ledorf, the strongest human being in all of Torvold. " << endl;
 	cout << "There he is! King" << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
 	bool end = false;
-
-	this->printEnviroInstruct();
-	char userOpt;
-	cin >> userOpt;
-
-	///do io data sanitization 
 	bool valid_choice = true; 
-	while(valid_choice){
+	do{
+		this->printEnviroInstruct();
+		char userOpt;
+		cin >> userOpt;
 		switch(userOpt){
 			case 'Q':
 				cout << exitMsg << endl;
 				valid_choice = false;
 				end = true;
+				quit = true; 
 				break;
 			case 'a':
 				startFight(p);
@@ -82,13 +81,12 @@ bool Castle::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << readHelpFile() << endl;
+				cout << "Help" << endl;
 				break;
 			default:
 				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
-				valid_choice = false; 
 		}
-	}
+	}while(valid_choice); 
 	return end;
 }
 

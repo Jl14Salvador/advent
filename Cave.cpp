@@ -5,13 +5,14 @@
  *      Author: Blinding Eclipse
  */
 #include "Cave.h"
+ #include "Text.cpp"
 using namespace std;
 
 Cave::Cave() {
 	berners = new Enemy("Berners", 300);
-	endGame = false;
-	welcomeMsg = "You have entered the Cave";
-	exitMsg = "You are now leaving the Cave."; 
+	quit = false; 
+	welcomeMsg = "\nYou have entered the Cave";
+	exitMsg = "You are now leaving the Cave.\n"; 
 }
 /**
  * This method executes the logics of the Cave chapter
@@ -28,7 +29,7 @@ void Cave::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive()){
+	if(p->isAlive() && quit == false){
 		cout << "\nYou have obtained the earth gem! Congratulations, you can now move on to the next environment" << endl; 
 		p->addGem(); 
 		cout << "You now have " << p->getGems(); 
@@ -62,19 +63,17 @@ bool Cave::playerSequence(Player* p){
 	cout << "Berners, a beast of great strength is lurking, he draws near. A dead carcus lies beside him." << endl;
 	cout << berners->getName() << " has attacked!" << endl;
 	bool end = false;
-
-	this->printEnviroInstruct();
-	char userOpt;
-	cin >> userOpt;
-
-	///do io data sanitization 
 	bool valid_choice = true; 
-	while(valid_choice){
+	do{
+		this->printEnviroInstruct();
+		char userOpt;
+		cin >> userOpt;
 		switch(userOpt){
 			case 'Q':
 				cout << exitMsg << endl;
 				valid_choice = false;
 				end = true;
+				quit = true; 
 				break;
 			case 'a':
 				startFight(p);
@@ -82,13 +81,12 @@ bool Cave::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << readHelpFile() << endl;
+				cout << "Help" << endl;
 				break;
 			default:
 				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
-				valid_choice = false; 
 		}
-	}
+	}while(valid_choice); 
 	return end;
 }
 

@@ -29,9 +29,6 @@ public:
 
 private:
 	Enemy* berners; 
-	
-	///This is a variable to check whether or not the environment is over
-	bool endGame;
 
 	///Welcome Message for the environment
 	string welcomeMsg;
@@ -48,6 +45,9 @@ private:
  	///Takes in the player object that will startFight algrorithm that will give the player options to use items, attacks or check the status of the 
  	///inventory and health of the player
  	void startFight(Player* player); 
-};
+
+ 	///Determines if the player quits and skips the environment 
+ 	bool quit; 
+ };
 
 #endif /* CAVE_H */

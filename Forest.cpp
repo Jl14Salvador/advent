@@ -5,13 +5,14 @@
  *      Author: Blinding Eclipse
  */
 #include "Forest.h"
+#include "Text.cpp"
 using namespace std;
 
 Forest::Forest() {
 	magnus = new Enemy("Magnus", 300);
-	endGame = false;
-	welcomeMsg = "You have entered the Forest";
-	exitMsg = "You are now leaving the Forest."; 
+	quit = false; 
+	welcomeMsg = "\nYou have entered the Forest";
+	exitMsg = "You are now leaving the Forest.\n"; 
 }
 /**
  * This method executes the logics of the Forest chapter
@@ -28,7 +29,7 @@ void Forest::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive()) {
+	if(p->isAlive() && quit == false) {
 		cout << "\nYou have obtained the ice gem! Congratulations, you can now move on to the next environment" << endl; 
 		p->addGem(); 
 		cout << "You now have " << p->getGems(); 
@@ -63,18 +64,17 @@ bool Forest::playerSequence(Player* p){
 	cout << "Magnus, a sorcerer from the Ancient Mountains of Rai has approached you" << endl;
 	cout << magnus->getName() << " says, 'you will never defeat the legendary Dragon! Not unless you go through me!'" << endl;
 	bool end = false;
-
-	this->printEnviroInstruct();
-	char userOpt;
-	cin >> userOpt;
-
 	bool valid_choice = true; 
-	while(valid_choice){
+	do {
+		this->printEnviroInstruct();
+		char userOpt;
+		cin >> userOpt;
 		switch(userOpt){
 			case 'Q':
 				cout << exitMsg << endl;
 				valid_choice = false;
 				end = true;
+				quit = true; 
 				break;
 			case 'a':
 				startFight(p);
@@ -82,13 +82,12 @@ bool Forest::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << readHelpFile() << endl;
+				cout << "Help!" << endl; 
 				break;
 			default:
 				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
-				valid_choice = false; 
 		}
-	}
+	} while(valid_choice); 
 	return end;
 }
 

@@ -5,20 +5,21 @@
  *      Author: Blinding Eclipse
  */
 #include "Village.h"
+#include "Text.cpp"
 using namespace std;
 
 Village::Village() {
 	dijistra = new Enemy("Dijistra", 200);
-	endGame = false;
-	welcomeMsg = "You have entered the Village";
-	exitMsg = "You are now leaving the Village."; 
+	welcomeMsg = "\nYou have entered the Village\n";
+	exitMsg = "You are now leaving the Village.\n"; 
+	quit = false; 
 }
 /**
  * This method executes the logics of the Village chapter
  */
 void Village::run(Player* p){
-	cout << welcomeMsg<< endl;
-	cout << "There's nobdy in sight. The Village is abandoned. You walk around the houses, searching for the first gem." << endl;
+	cout << welcomeMsg;
+	cout << "There's nobdy in sight. The Village is abandoned. You walk around the houses, searching for the first gem.\n" << endl;
 	cout << "It is very quiet. Too quiet..." << endl;
 	
 	bool endEnvironment = false;
@@ -28,15 +29,15 @@ void Village::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive()) {
+	if(p->isAlive() && quit == false) {
 		cout << "\nYou have obtained the fire gem! Congratulations, you can now move on to the next environment" << endl; 
 		p->addGem(); 
 		cout << "You now have " << p->getGems(); 
 		if (p->getGems() == 1)
-			cout << " gem." << endl; 
+			cout << " gem.";
 		else 
-			cout << " gems." << endl; 
-		cout << "You now wield the power of Fire! Fire Attack inherited! Attack damage increased." << endl; 
+			cout << " gems.";
+		cout << "\nYou now wield the power of Fire! Fire Attack inherited! Attack damage increased." << endl; 
 		p->setWeapon(new FireAttk); 
 		cout << exitMsg << endl; 
 		cout << "**********************************************************************************" << endl; 
@@ -63,19 +64,19 @@ bool Village::playerSequence(Player* p){
 	cout << "Dijistra a swordsman has appeared. He is a competent foe." << endl; 
 	cout << dijistra->getName() << " wants to attack!" << endl;
 	bool end = false;
-
-	this->printEnviroInstruct();
-	char userOpt;
-	cin >> userOpt;
-
-	///do io data sanitization 
-	bool valid_choice = true; 
-	while(valid_choice){
+	bool valid_choice = true;
+	do {
+		this->printEnviroInstruct();
+		char userOpt;
+		cin >> userOpt;
+		
+		///do io data sanitization 
 		switch(userOpt){
 			case 'Q':
 				cout << exitMsg << endl;
 				valid_choice = false;
 				end = true;
+				quit = true; 
 				break;
 			case 'a':
 				startFight(p);
@@ -83,14 +84,14 @@ bool Village::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << readHelpFile() << endl;
+				cout << "Help!"  << endl;
 				break;
 			default:
 				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
-				valid_choice = false; 
 		}
-	}
-	return end;
+	} while(valid_choice);
+
+	return end; 
 }
 
 void Village::startFight(Player* player) {
