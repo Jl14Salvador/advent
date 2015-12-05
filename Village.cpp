@@ -5,22 +5,20 @@
  *      Author: Blinding Eclipse
  */
 #include "Village.h"
-#include "Text.cpp"
 using namespace std;
 
 Village::Village() {
 	dijistra = new Enemy("Dijistra", 200, 10);
-	welcomeMsg = "\nYou have entered the Village.\n";
-	exitMsg = "You are now leaving the Village.\n"; 
 	quit = false; 
 }
 /**
  * This method executes the logics of the Village chapter
  */
+
 void Village::run(Player* p){
-	cout << welcomeMsg;
-	cout << "There's nobdy in sight. The Village is abandoned. You walk around the houses, searching for the first gem.\n" << endl;
-	cout << "It is very quiet. Too quiet..." << endl;
+	cout << text.welcomeMsg;
+	cout << text.story1; 
+	cout << text.story2; 
 	
 	bool endEnvironment = false;
 	do
@@ -30,21 +28,41 @@ void Village::run(Player* p){
 		
 	} while (!endEnvironment);
 	if(p->isAlive() && quit == false) {
-		cout << "\nYou have obtained the fire gem! Congratulations, you can now move on to the next environment" << endl; 
-		p->addGem(); 
-		cout << "You now have " << p->getGems(); 
-		if (p->getGems() == 1)
-			cout << " gem.";
-		else 
-			cout << " gems.";
-		cout << "\nYou now wield the power of Fire! Fire Attack inherited! Attack damage increased." << endl; 
-		p->setWeapon(new FireAttk); 
-		cout << exitMsg << endl; 
-		cout << "**********************************************************************************" << endl; 
+		p->addGem();	
+		switch(p->getGems()) {
+			cout << p->getGems() << " this many gems" << endl; 
+			case 1:				
+				p->setWeapon(new FireAttk); 
+				cout << gemMsg.fire1; 		 
+				reportGems(p); 
+				cout << gemMsg.fire2; 
+				break; 
+			case 2:
+				p->setWeapon(new IceAttk); 
+				cout << gemMsg.ice1; 		 
+				reportGems(p); 
+				cout << gemMsg.ice2; 
+				break; 
+			case 3:
+				p->setWeapon(new Quake); 
+				cout << gemMsg.earth1; 		 
+				reportGems(p); 
+				cout << gemMsg.earth2; 
+				break; 
+			case 4:
+				p->setWeapon(new MasterSword); 
+				cout << gemMsg.rainbow1; 		 
+				reportGems(p); 
+				cout << gemMsg.rainbow2; 
+				break;
+			default:
+				cout << "No new attack acquired" << endl; 
+		}
+		cout << text.exitMsg << endl; 
+		cout << "***************************************************************************" << endl; 
 	}
 	else 
 		cout << "You failed to pass this environment." << endl; 
-
 }
 
 string Village::readHelpFile(){
@@ -59,9 +77,11 @@ string Village::readHelpFile(){
 	return toReturn;
 }
 
+
+
 bool Village::playerSequence(Player* p){
 
-	cout << "Dijistra a swordsman has appeared. He is a competent foe." << endl; 
+	cout << text.enemyMsg;  
 	cout << dijistra->getName() << " wants to attack!" << endl;
 	bool end = false;
 	bool valid_choice = true;
@@ -108,7 +128,7 @@ void Village::startFight(Player* player) {
 			case 'a':
 				player->attack(dijistra); 
 				if(dijistra->isAlive()){
-					cout << dijistra->getName() << " attacked back!" << endl; 
+					cout << dijistra->getName() << " attacked back!";
 					dijistra->attack(player); 					
 				}
 				break; 
@@ -129,19 +149,10 @@ void Village::startFight(Player* player) {
 	}while(player->isAlive() && dijistra->isAlive());
 }
 
-/*void Village::printInstruction() {
-	cout << "\nPress i to show your inventory list:" << endl;
-	cout << "Press a to attack: " << endl; 
-	cout << "Press p to use potion: " << endl; 
-	cout << "Press b to use bomb: " << endl; 
-	cout << "Press s to use superPotion: " << endl; 
-	cout << "Press x to view current health: " << endl; 
-	cout << "What would you like to do: "; 
+void Village::reportGems(Player* p) {
+	cout << "You now have " << p->getGems(); 
+		if (p->getGems() == 1)
+			cout << " gem.";
+		else 
+			cout << " gems.";
 }
-
-void Village::printEnviroInstruct() {
-	cout << "\nQ will exit the environment" << endl;
-	cout << "a will start the fight" << endl;
-	cout << "h will read the help file" << endl; 
-	cout << "What would you like to do: ";
-}*/

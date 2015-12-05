@@ -10,6 +10,7 @@
 #include "Enemy.h"
 #include "Enviros.h"
 #include "Player.h"
+#include "Text.cpp"  
 
 #include <string>
 #include <vector>
@@ -48,6 +49,9 @@ private:
 
  	///Determines if the player quits and skips the environment 
  	bool quit; 
+
+ 	///The dialog for this environment 
+ 	CaveText text; 
  };
 
 #endif /* CAVE_H */

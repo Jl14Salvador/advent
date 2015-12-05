@@ -5,7 +5,6 @@
  *      Author: Blinding Eclipse
  */
 #include "Castle.h"
- #include "Text.cpp"
 using namespace std;
 
 Castle::Castle() {

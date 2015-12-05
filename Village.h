@@ -11,6 +11,7 @@
 #include "Enviros.h"
 #include "Player.h"
 #include "LandofTorvold.h"
+#include "Text.cpp" 
 
 #include <string>
 #include <vector>
@@ -30,12 +31,6 @@ public:
 private:
 	Enemy* dijistra;
 
-	///Welcome Message for the environment	
-	string welcomeMsg;
-
-	///Exit Message for the environment	
-	string exitMsg;
-
 	///generates help file	
     string readHelpFile();
 
@@ -44,10 +39,19 @@ private:
 
  	///Takes in the player object that will startFight algrorithm that will give the player options to use items, attacks or check the status of the 
  	///inventory and health of the player
- 	void startFight(Player* player);
+ 	void startFight(Player* p);
 
- 	//Determines if the player quits and skips the environment 
+ 	///Determines if the player quits and skips the environment 
  	bool quit; 
+
+ 	///The dialog for this environment 
+ 	VillageText text; 
+
+ 	///
+ 	GemText gemMsg; 
+
+ 	///Outputs the number of gems the user has 
+ 	void reportGems(Player* p); 
 };
 
 #endif /* VILLAGE_H */

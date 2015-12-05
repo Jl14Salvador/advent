@@ -5,7 +5,6 @@
  *      Author: Blinding Eclipse
  */
 #include "Forest.h"
-#include "Text.cpp"
 using namespace std;
 
 Forest::Forest() {

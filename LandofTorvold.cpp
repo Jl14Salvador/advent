@@ -12,8 +12,8 @@ LandofTorvold::LandofTorvold() {
 void LandofTorvold::run() {
 
 	cout << "Excellent, you will travel through 4 different environments where you  will capture the sacred gems of the world." << endl; 
-	cout << "Once you've captured all the gems you will use their powers to defeat the fiersome Dragon that torments the Land. " << endl; 
-	cout << "Prepare yourself, for you will fight many battles and must become much stronger to fight greatest opponent. " << endl; 
+	cout << "Once you've captured all the gems you will use their powers to defeat the fieresome Dragon that torments the Land. " << endl; 
+	cout << "Prepare yourself, for you will fight many battles and must become much stronger to fight your greatest opponent. " << endl; 
 	for(unsigned int i = 0; i < environmentList.size(); i++) {
 		if(_player->isAlive())
 			environmentList.at(i)->run(_player);

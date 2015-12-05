@@ -5,7 +5,6 @@
  *      Author: Blinding Eclipse
  */
 #include "Cave.h"
- #include "Text.cpp"
 using namespace std;
 
 Cave::Cave() {
