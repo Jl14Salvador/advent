@@ -9,14 +9,14 @@ void BasicAttk::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill();
 	else 
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n"; 
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. "; 
 	
-	attacker->dropHealth(attackDamage/2);
+/*	attacker->dropHealth(attackDamage/2);
 	std::cout << "\nYou took " << attackDamage/2 << " damage!";
 	if(attacker->getHealth() <= 0)
 		attacker->kill(); 
 	else
-		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; 
+		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; */
 
 	
 } 
@@ -29,14 +29,14 @@ void FireAttk::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
 
-	attacker->dropHealth(attackDamage/2);
+/*	attacker->dropHealth(attackDamage/2);
 	std::cout << "\nYou took " << attackDamage/2 << " damage!";
 	if(attacker->getHealth() <= 0)
 		attacker->kill(); 
 	else
-		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; 
+		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; */
 } 
 void IceAttk::attack(Character* attacker, Character* who) {
 	std::cout << attacker->getName() << " has froze " << who->getName() << "! "; 
@@ -46,14 +46,14 @@ void IceAttk::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
 
-	attacker->dropHealth(attackDamage/2);
+/*	attacker->dropHealth(attackDamage/2);
 	std::cout << "\nYou took " << attackDamage/2 << " damage!";
 	if(attacker->getHealth() <= 0)
 		attacker->kill(); 
 	else
-		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; 
+		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; */
 } 
 
 void Quake::attack(Character* attacker, Character* who) {
@@ -64,14 +64,14 @@ void Quake::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
 
-	attacker->dropHealth(attackDamage/2);
+/*	attacker->dropHealth(attackDamage/2);
 	std::cout << "\nYou took " << attackDamage/2 << " damage!";
 	if(attacker->getHealth() <= 0)
 		attacker->kill(); 
 	else
-		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; 
+		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; */
 
 } 
 
@@ -83,13 +83,14 @@ void MasterSword::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n";
-	attacker->dropHealth(attackDamage/2);
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
+
+/*	attacker->dropHealth(attackDamage/2);
 	std::cout << "\nYou took " << attackDamage/2 << " damage!";
 	if(attacker->getHealth() <= 0)
 		attacker->kill(); 
 	else
-		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; 
+		std::cout << "\nYou have " << attacker->getHealth() << " health remaining.\n"; */
 } 
 
 

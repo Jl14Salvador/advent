@@ -9,8 +9,8 @@
 using namespace std;
 
 Village::Village() {
-	dijistra = new Enemy("Dijistra", 200);
-	welcomeMsg = "\nYou have entered the Village\n";
+	dijistra = new Enemy("Dijistra", 200, 10);
+	welcomeMsg = "\nYou have entered the Village.\n";
 	exitMsg = "You are now leaving the Village.\n"; 
 	quit = false; 
 }
@@ -69,7 +69,7 @@ bool Village::playerSequence(Player* p){
 		this->printEnviroInstruct();
 		char userOpt;
 		cin >> userOpt;
-		
+
 		///do io data sanitization 
 		switch(userOpt){
 			case 'Q':
@@ -107,6 +107,10 @@ void Village::startFight(Player* player) {
 				break;
 			case 'a':
 				player->attack(dijistra); 
+				if(dijistra->isAlive()){
+					cout << dijistra->getName() << " attacked back!" << endl; 
+					dijistra->attack(player); 					
+				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);

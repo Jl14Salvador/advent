@@ -6,7 +6,7 @@ LandofTorvold::LandofTorvold() {
 	environmentList.push_back(new Forest() );	
 	environmentList.push_back(new Cave() );
 	environmentList.push_back(new Castle() );
-	smaug = new Enemy("Smaug", 1000);
+	smaug = new Enemy("Smaug", 1000, 60);
 }
 
 void LandofTorvold::run() {
@@ -61,8 +61,11 @@ void LandofTorvold::startFight(Player* player) {
 				player->showItems(); 
 				break;
 			case 'a':
-				player->attack(smaug); 
-				// if(player->isAlive() == false)
+				player->attack(smaug);
+				if(smaug->isAlive()){
+					cout << smaug->getName() << " attacked back!" << endl; 
+					smaug->attack(player); 
+				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);
@@ -77,7 +80,7 @@ void LandofTorvold::startFight(Player* player) {
 				player->useItem(new Bomb);
 				break; 	
 			default:
-			std::cout << "Chose wrong option, please try again"; 
+			cout << "Chose wrong option, please try again"; 
 		}
 	}while(player->isAlive() && smaug->isAlive());
 }

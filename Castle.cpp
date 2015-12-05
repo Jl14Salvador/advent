@@ -9,16 +9,16 @@
 using namespace std;
 
 Castle::Castle() {
-	ledorf = new Enemy("King Ledorf", 300);
+	ledorf = new Enemy("King Ledorf", 400, 40);
 	quit = false;
-	welcomeMsg = "\nYou have entered the Castle";
+	welcomeMsg = "\nYou have entered the Castle.\n";
 	exitMsg = "You are now leaving the Castle.\n"; 
 }
 /**
  * This method executes the logics of the Castle chapter
  */
 void Castle::run(Player* p){
-	cout << welcomeMsg<< endl;
+	cout << welcomeMsg;
 	cout << "The castle is massive. It is the largest building you have ever seen. " << endl; 
 	cout << "Its bricks stretch across the vast Mountain range, this where the final gem lies. " << endl;
 	
@@ -61,7 +61,7 @@ string Castle::readHelpFile(){
 bool Castle::playerSequence(Player* p){
 
 	cout << "This is the home of King Ledorf, the strongest human being in all of Torvold. " << endl;
-	cout << "There he is! King" << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
+	cout << "There he is! " << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
 	bool end = false;
 	bool valid_choice = true; 
 	do{
@@ -102,7 +102,11 @@ void Castle::startFight(Player* player) {
 				player->showItems(); 
 				break;
 			case 'a':
-				player->attack(ledorf); 
+				player->attack(ledorf);
+				if(ledorf->isAlive()){
+					cout << ledorf->getName() << " attacked back!" << endl; 
+					ledorf->attack(player);  					
+				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);

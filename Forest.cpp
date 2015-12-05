@@ -9,16 +9,16 @@
 using namespace std;
 
 Forest::Forest() {
-	magnus = new Enemy("Magnus", 300);
+	magnus = new Enemy("Magnus", 300, 20);
 	quit = false; 
-	welcomeMsg = "\nYou have entered the Forest";
+	welcomeMsg = "\nYou have entered the Forest.\n";
 	exitMsg = "You are now leaving the Forest.\n"; 
 }
 /**
  * This method executes the logics of the Forest chapter
  */
 void Forest::run(Player* p){
-	cout << welcomeMsg<< endl;
+	cout << welcomeMsg;
 	cout << "The forest is full of dense trees and has an eerie feel to it. " << endl; 
 	cout << "You see the remains of a fallen hero, holding a note, it reads 'Go Back, DANGER LIES AHEAD!' " << endl;
 	
@@ -104,6 +104,10 @@ void Forest::startFight(Player* player) {
 				break;
 			case 'a':
 				player->attack(magnus); 
+				if(magnus->isAlive()){
+					cout << magnus->getName() << " attacked back!" << endl; 
+					magnus->attack(player); 					
+				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);

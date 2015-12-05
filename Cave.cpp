@@ -9,16 +9,16 @@
 using namespace std;
 
 Cave::Cave() {
-	berners = new Enemy("Berners", 300);
+	berners = new Enemy("Berners", 350, 30);
 	quit = false; 
-	welcomeMsg = "\nYou have entered the Cave";
+	welcomeMsg = "\nYou have entered the Cave.\n";
 	exitMsg = "You are now leaving the Cave.\n"; 
 }
 /**
  * This method executes the logics of the Cave chapter
  */
 void Cave::run(Player* p){
-	cout << welcomeMsg<< endl;
+	cout << welcomeMsg;
 	cout << "You hear bats in the distance, mosquitos buzzing, and water dripping from afar. " << endl; 
 	cout << "This cave feels cold and lifeless... " << endl;
 	
@@ -103,6 +103,10 @@ void Cave::startFight(Player* player) {
 				break;
 			case 'a':
 				player->attack(berners); 
+				if(berners->isAlive()){
+					cout << berners->getName() << " attacked back!" << endl; 
+					berners->attack(player); 					
+				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);
