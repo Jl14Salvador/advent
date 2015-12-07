@@ -34,7 +34,7 @@ void Bomb::increment() {
 
 void Potion::useItem(Player* who) {
 	if(quantity > 0) {
-		std::cout << "Potion has been used" << std::endl; 
+		std::cout << name << " has been used" << std::endl; 
 		who->increaseHealth(20); 
 		quantity--; 
 		std:: cout << "You have " << quantity << " " << name; 
@@ -62,7 +62,7 @@ void Potion::increment() {
 //------------------------------------------------------------------------------
 void SuperPotion::useItem(Player* who){
 	if(quantity > 0) {
-		std::cout << "Potion has been used" << std::endl; 
+		std::cout << name << " has been used" << std::endl; 
 		who->increaseHealth(50); 
 		quantity--; 
 		std:: cout << "You have " << quantity << " " << name; 

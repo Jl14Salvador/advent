@@ -50,8 +50,14 @@ private:
  	///Determines if the player quits and skips the environment 
  	bool quit; 
 
+ 	///Messages for the gems 
+ 	GemText gemMsg; 
+
  	///The dialog for this environment 
  	CaveText text; 
+
+ 	///Outputs the number of gems the user has 
+ 	void reportGems(Player* p); 
  };
 
 #endif /* CAVE_H */

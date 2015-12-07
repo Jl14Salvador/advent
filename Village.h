@@ -31,9 +31,6 @@ public:
 private:
 	Enemy* dijistra;
 
-	///generates help file	
-    string readHelpFile();
-
     ///This generates the battle for the environment and gives the player the options to display help, start fight or exit 
  	bool playerSequence(Player* p);
 
@@ -47,7 +44,7 @@ private:
  	///The dialog for this environment 
  	VillageText text; 
 
- 	///
+ 	///Messages for the gems 
  	GemText gemMsg; 
 
  	///Outputs the number of gems the user has 

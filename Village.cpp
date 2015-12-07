@@ -5,6 +5,7 @@
  *      Author: Blinding Eclipse
  */
 #include "Village.h"
+#include <stdio.h>
 using namespace std;
 
 Village::Village() {
@@ -65,7 +66,7 @@ void Village::run(Player* p){
 		cout << "You failed to pass this environment." << endl; 
 }
 
-string Village::readHelpFile(){
+/*string Village::readHelpFile(){
 
 	ifstream file("help.txt");
 	string toReturn;
@@ -75,9 +76,7 @@ string Village::readHelpFile(){
 	}
 
 	return toReturn;
-}
-
-
+}*/
 
 bool Village::playerSequence(Player* p){
 
@@ -85,15 +84,35 @@ bool Village::playerSequence(Player* p){
 	cout << dijistra->getName() << " wants to attack!" << endl;
 	bool end = false;
 	bool valid_choice = true;
-	do {
-		this->printEnviroInstruct();
-		char userOpt;
-		cin >> userOpt;
 
-		///do io data sanitization 
+	this->printEnviroInstruct();
+	do {
+		// cout << "What would you like to do: "; 
+		//Triggers the default in the switch loop in case it never gets assigned. 
+		char userOpt = 'e';
+		// // userOpt = getc(stdin);
+		// cin >> userOpt;
+
+		bool goodInput = true;  
+		while(goodInput){
+			cin.clear();
+			cin.ignore(128); 
+			cout << "What would you like to do: ";
+			string stInput;
+			getline(std::cin, stInput);
+			cout << endl; 
+			if(stInput.length() != 1){
+				cout << "Bad input1, please try again: ";
+			}				
+			else {
+			   userOpt = stInput[0];
+			   goodInput = false; 				
+			}	
+		}
 		switch(userOpt){
+			cout << "input happens" << endl; 
 			case 'Q':
-				cout << exitMsg << endl;
+				cout << text.exitMsg << endl;
 				valid_choice = false;
 				end = true;
 				quit = true; 
@@ -104,7 +123,7 @@ bool Village::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << "Help!"  << endl;
+				this->printEnviroInstruct();
 				break;
 			default:
 				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
@@ -116,16 +135,32 @@ bool Village::playerSequence(Player* p){
 
 void Village::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
-	char input; 
+	//Input is set to the default in the switch statement in case input does not get initialized
+	char input = 'e'; 
+	cin.clear();  
+
+	this->printInstruction();
 	do {
-		this->printInstruction();
-		cin >> input;
-		cout << endl; 
+		bool goodInput = true;  
+		while(goodInput){
+			cout << "What would you like to do: ";
+			string stInput;
+			getline(std::cin, stInput);
+			cout << endl; 
+			if(stInput.length() != 1){
+				cout << "Bad input, please try again: ";
+			}				
+			else {
+			   input = stInput[0];
+			   goodInput = false; 				
+			}		
+		}
 		switch(input){
 			case 'i':
 				player->showItems(); 
 				break;
 			case 'a':
+				cout << "This is the INPUT: " << input << endl; 
 				player->attack(dijistra); 
 				if(dijistra->isAlive()){
 					cout << dijistra->getName() << " attacked back!";
@@ -143,8 +178,12 @@ void Village::startFight(Player* player) {
 			case 'b':
 				player->useItem(new Bomb);
 				break; 
+			case 'h': 
+				this->printInstruction();
+				break; 
 			default:
-			std::cout << "Chose wrong option, please try again"; 
+			cout << "This is THE INPUT: " << input << endl; 
+			std::cout << "Chose wrong option, please try again, type h for options"; 
 		}
 	}while(player->isAlive() && dijistra->isAlive());
 }
