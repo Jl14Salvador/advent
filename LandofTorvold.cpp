@@ -93,12 +93,12 @@ void LandofTorvold::printInstruction(){
 	cout << "Press b to use bomb: " << endl; 
 	cout << "Press s to use superPotion: " << endl; 
 	cout << "Press x to view current health: " << endl; 
-	cout << "What would you like to do: "; 
+	// cout << "What would you like to do: "; 
 }
 
 void LandofTorvold::printEnviroInstruct() {
-	cout << "\nQ will exit the environment" << endl;
+	cout << "Q will exit the environment CHANGED" << endl;
 	cout << "a will start the fight" << endl;
 	cout << "h will read the help file" << endl; 
-	cout << "What would you like to do: ";
+	// cout << "What would you like to do: ";
 }

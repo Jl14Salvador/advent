@@ -13,6 +13,13 @@ class Enviros {
 
 		///Prints the instructions and options when in the environment
 		void printEnviroInstruct();
+
+		///Takes input from the user and ensures its valid, then returns it. 
+		char validateData(); 
+
+		///Outputs the number of gems the user has 
+		void reportGems(Player* p); 
+
 	private:
 		
 };

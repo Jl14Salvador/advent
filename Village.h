@@ -46,9 +46,6 @@ private:
 
  	///Messages for the gems 
  	GemText gemMsg; 
-
- 	///Outputs the number of gems the user has 
- 	void reportGems(Player* p); 
 };
 
 #endif /* VILLAGE_H */

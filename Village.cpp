@@ -6,6 +6,7 @@
  */
 #include "Village.h"
 #include <stdio.h>
+
 using namespace std;
 
 Village::Village() {
@@ -82,35 +83,14 @@ bool Village::playerSequence(Player* p){
 
 	cout << text.enemyMsg;  
 	cout << dijistra->getName() << " wants to attack!" << endl;
+
 	bool end = false;
 	bool valid_choice = true;
 
 	this->printEnviroInstruct();
-	do {
-		// cout << "What would you like to do: "; 
-		//Triggers the default in the switch loop in case it never gets assigned. 
-		char userOpt = 'e';
-		// // userOpt = getc(stdin);
-		// cin >> userOpt;
-
-		bool goodInput = true;  
-		while(goodInput){
-			cin.clear();
-			cin.ignore(128); 
-			cout << "What would you like to do: ";
-			string stInput;
-			getline(std::cin, stInput);
-			cout << endl; 
-			if(stInput.length() != 1){
-				cout << "Bad input1, please try again: ";
-			}				
-			else {
-			   userOpt = stInput[0];
-			   goodInput = false; 				
-			}	
-		}
+	do {	
+		char userOpt = validateData();
 		switch(userOpt){
-			cout << "input happens" << endl; 
 			case 'Q':
 				cout << text.exitMsg << endl;
 				valid_choice = false;
@@ -126,7 +106,7 @@ bool Village::playerSequence(Player* p){
 				this->printEnviroInstruct();
 				break;
 			default:
-				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
+				cout << "Invalid choice, please try again, or enter 'h' for help.\n";
 		}
 	} while(valid_choice);
 
@@ -135,32 +115,15 @@ bool Village::playerSequence(Player* p){
 
 void Village::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
-	//Input is set to the default in the switch statement in case input does not get initialized
-	char input = 'e'; 
-	cin.clear();  
 
 	this->printInstruction();
 	do {
-		bool goodInput = true;  
-		while(goodInput){
-			cout << "What would you like to do: ";
-			string stInput;
-			getline(std::cin, stInput);
-			cout << endl; 
-			if(stInput.length() != 1){
-				cout << "Bad input, please try again: ";
-			}				
-			else {
-			   input = stInput[0];
-			   goodInput = false; 				
-			}		
-		}
+		char input = validateData();  
 		switch(input){
 			case 'i':
 				player->showItems(); 
 				break;
 			case 'a':
-				cout << "This is the INPUT: " << input << endl; 
 				player->attack(dijistra); 
 				if(dijistra->isAlive()){
 					cout << dijistra->getName() << " attacked back!";
@@ -182,16 +145,7 @@ void Village::startFight(Player* player) {
 				this->printInstruction();
 				break; 
 			default:
-			cout << "This is THE INPUT: " << input << endl; 
-			std::cout << "Chose wrong option, please try again, type h for options"; 
+			std::cout << "Chose wrong option, please try again, type h for options.\n"; 
 		}
 	}while(player->isAlive() && dijistra->isAlive());
-}
-
-void Village::reportGems(Player* p) {
-	cout << "You now have " << p->getGems(); 
-		if (p->getGems() == 1)
-			cout << " gem.";
-		else 
-			cout << " gems.";
 }
