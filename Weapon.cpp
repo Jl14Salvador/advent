@@ -18,7 +18,7 @@ void FireAttk::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n \n";
 } 
 void IceAttk::attack(Character* attacker, Character* who) {
 	std::cout << attacker->getName() << " has froze " << who->getName() << "! "; 
@@ -27,7 +27,7 @@ void IceAttk::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n \n";
 } 
 
 void Quake::attack(Character* attacker, Character* who) {
@@ -37,7 +37,7 @@ void Quake::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n \n";
 } 
 
 void MasterSword::attack(Character* attacker, Character* who) {
@@ -48,7 +48,7 @@ void MasterSword::attack(Character* attacker, Character* who) {
 	if(who->getHealth() <= 0)
 		who->kill(); 
 	else
-		std::cout << who->getName() << " has " << who->getHealth() << " health remaining. ";
+		std::cout << who->getName() << " has " << who->getHealth() << " health remaining.\n \n";
 } 
 
 

@@ -10,16 +10,14 @@ using namespace std;
 Cave::Cave() {
 	berners = new Enemy("Berners", 350, 30);
 	quit = false; 
-	welcomeMsg = "\nYou have entered the Cave.\n";
-	exitMsg = "You are now leaving the Cave.\n"; 
 }
 /**
  * This method executes the logics of the Cave chapter
  */
 void Cave::run(Player* p){
-	cout << welcomeMsg;
-	cout << "You hear bats in the distance, mosquitos buzzing, and water dripping from afar. " << endl; 
-	cout << "This cave feels cold and lifeless... " << endl;
+	cout << text.welcomeMsg;
+	cout << text.story1; 
+	cout << text.story2; 
 	
 	bool endEnvironment = false;
 	do
@@ -28,24 +26,45 @@ void Cave::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive() && quit == false){
-		cout << "\nYou have obtained the earth gem! Congratulations, you can now move on to the next environment" << endl; 
-		p->addGem(); 
-		cout << "You now have " << p->getGems(); 
-		if (p->getGems() == 1)
-			cout << " gem." << endl; 
-		else 
-			cout << " gems." << endl; 
-		cout << "You now wield the power of earth! Quake attack inherited! Attack damage increased." << endl; 
-		p->setWeapon(new Quake); 
-		cout << exitMsg << endl; 
-		cout << "******************************************************************************************" << endl; 
+	if(p->isAlive() && quit == false) {
+		p->addGem();	
+		switch(p->getGems()) {
+			cout << p->getGems() << " this many gems" << endl; 
+			case 1:				
+				p->setWeapon(new FireAttk); 
+				cout << gemMsg.fire1; 		 
+				reportGems(p); 
+				cout << gemMsg.fire2; 
+				break; 
+			case 2:
+				p->setWeapon(new IceAttk); 
+				cout << gemMsg.ice1; 		 
+				reportGems(p); 
+				cout << gemMsg.ice2; 
+				break; 
+			case 3:
+				p->setWeapon(new Quake); 
+				cout << gemMsg.earth1; 		 
+				reportGems(p); 
+				cout << gemMsg.earth2; 
+				break; 
+			case 4:
+				p->setWeapon(new MasterSword); 
+				cout << gemMsg.rainbow1; 		 
+				reportGems(p); 
+				cout << gemMsg.rainbow2; 
+				break;
+			default:
+				cout << "No new attack acquired" << endl; 
+		}
+		cout << text.exitMsg << endl; 
+		cout << "***************************************************************************" << endl; 
 	}
-	else
-		cout << "You have failed to pass this environment." << endl; 
+	else 
+		cout << "You failed to pass this environment." << endl; 
 }
 
-string Cave::readHelpFile(){
+/*string Cave::readHelpFile(){
 
 	ifstream file("help.txt");
 	string toReturn;
@@ -55,21 +74,22 @@ string Cave::readHelpFile(){
 	}
 
 	return toReturn;
-}
+}*/
 
 bool Cave::playerSequence(Player* p){
 
-	cout << "Berners, a beast of great strength is lurking, he draws near. A dead carcus lies beside him." << endl;
+	cout << text.enemyMsg; 
 	cout << berners->getName() << " has attacked!" << endl;
+	
 	bool end = false;
-	bool valid_choice = true; 
-	do{
-		this->printEnviroInstruct();
-		char userOpt;
-		cin >> userOpt;
+	bool valid_choice = true;
+
+	this->printEnviroInstruct();
+	do {	
+		char userOpt = validateData();
 		switch(userOpt){
 			case 'Q':
-				cout << exitMsg << endl;
+				cout << text.exitMsg << endl;
 				valid_choice = false;
 				end = true;
 				quit = true; 
@@ -80,22 +100,22 @@ bool Cave::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << "Help" << endl;
+				this->printEnviroInstruct();
 				break;
 			default:
-				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
+				cout << "Invalid choice, please try again, or enter 'h' for help.\n";
 		}
-	}while(valid_choice); 
-	return end;
+	} while(valid_choice);
+
+	return end; 
 }
 
 void Cave::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
-	char input; 
+
+	this->printInstruction();
 	do {
-		this->printInstruction();
-		cin >> input;
-		cout << endl; 
+		char input = validateData();  
 		switch(input){
 			case 'i':
 				player->showItems(); 
@@ -103,7 +123,7 @@ void Cave::startFight(Player* player) {
 			case 'a':
 				player->attack(berners); 
 				if(berners->isAlive()){
-					cout << berners->getName() << " attacked back!" << endl; 
+					cout << berners->getName() << " attacked back!";
 					berners->attack(player); 					
 				}
 				break; 
@@ -117,9 +137,12 @@ void Cave::startFight(Player* player) {
 				break; 
 			case 'b':
 				player->useItem(new Bomb);
-				break; 	
+				break; 
+			case 'h': 
+				this->printInstruction();
+				break; 
 			default:
-			std::cout << "Chose wrong option, please try again"; 
+			std::cout << "Chose wrong option, please try again, type h for options.\n"; 
 		}
 	}while(player->isAlive() && berners->isAlive());
 }

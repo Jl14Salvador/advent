@@ -5,21 +5,22 @@
  *      Author: Blinding Eclipse
  */
 #include "Forest.h"
+#include <stdio.h>
+
 using namespace std;
 
 Forest::Forest() {
 	magnus = new Enemy("Magnus", 300, 20);
 	quit = false; 
-	welcomeMsg = "\nYou have entered the Forest.\n";
-	exitMsg = "You are now leaving the Forest.\n"; 
 }
+
 /**
  * This method executes the logics of the Forest chapter
  */
 void Forest::run(Player* p){
-	cout << welcomeMsg;
-	cout << "The forest is full of dense trees and has an eerie feel to it. " << endl; 
-	cout << "You see the remains of a fallen hero, holding a note, it reads 'Go Back, DANGER LIES AHEAD!' " << endl;
+	cout << text.welcomeMsg;
+	cout << text.story1; 
+	cout << text.story2; 
 	
 	bool endEnvironment = false;
 	do
@@ -29,48 +30,56 @@ void Forest::run(Player* p){
 		
 	} while (!endEnvironment);
 	if(p->isAlive() && quit == false) {
-		cout << "\nYou have obtained the ice gem! Congratulations, you can now move on to the next environment" << endl; 
-		p->addGem(); 
-		cout << "You now have " << p->getGems(); 
-		if (p->getGems() == 1)
-			cout << " gem." << endl; 
-		else 
-			cout << " gems." << endl; 
-		cout << "You now wield the power of ice! Ice Attack inherited! Attack damage increased." << endl; 
-		p->setWeapon(new IceAttk); 
-		cout << exitMsg << endl; 
-		cout << "******************************************************************************************" << endl; 
+		p->addGem();	
+		switch(p->getGems()) {
+			cout << p->getGems() << " this many gems" << endl; 
+			case 1:				
+				p->setWeapon(new FireAttk); 
+				cout << gemMsg.fire1; 		 
+				reportGems(p); 
+				cout << gemMsg.fire2; 
+				break; 
+			case 2:
+				p->setWeapon(new IceAttk); 
+				cout << gemMsg.ice1; 		 
+				reportGems(p); 
+				cout << gemMsg.ice2; 
+				break; 
+			case 3:
+				p->setWeapon(new Quake); 
+				cout << gemMsg.earth1; 		 
+				reportGems(p); 
+				cout << gemMsg.earth2; 
+				break; 
+			case 4:
+				p->setWeapon(new MasterSword); 
+				cout << gemMsg.rainbow1; 		 
+				reportGems(p); 
+				cout << gemMsg.rainbow2; 
+				break;
+			default:
+				cout << "No new attack acquired" << endl; 
+		}
+		cout << text.exitMsg << endl; 
+		cout << "***************************************************************************" << endl; 
 	}
-	else
-		cout << "You have failed to pass this environment." << endl; 
-
-}
-
-string Forest::readHelpFile(){
-
-	ifstream file("help.txt");
-	string toReturn;
-	string currentLine;
-	while(getline(file, currentLine)){
-		toReturn += currentLine + "\n";
-	}
-
-	return toReturn;
+	else 
+		cout << "You failed to pass this environment." << endl; 
 }
 
 bool Forest::playerSequence(Player* p){
-
-	cout << "Magnus, a sorcerer from the Ancient Mountains of Rai has approached you" << endl;
+	cout << text.enemyMsg; 
 	cout << magnus->getName() << " says, 'you will never defeat the legendary Dragon! Not unless you go through me!'" << endl;
+	
 	bool end = false;
-	bool valid_choice = true; 
-	do {
-		this->printEnviroInstruct();
-		char userOpt;
-		cin >> userOpt;
+	bool valid_choice = true;
+
+	this->printEnviroInstruct();
+	do {	
+		char userOpt = validateData();
 		switch(userOpt){
 			case 'Q':
-				cout << exitMsg << endl;
+				cout << text.exitMsg << endl;
 				valid_choice = false;
 				end = true;
 				quit = true; 
@@ -81,22 +90,22 @@ bool Forest::playerSequence(Player* p){
 				end = true;
 				break;
 			case 'h':
-				cout << "Help!" << endl; 
+				this->printEnviroInstruct();
 				break;
 			default:
-				cout << "Invalid choice, please try again, or enter 'h' for help." << endl;
+				cout << "Invalid choice, please try again, or enter 'h' for help.\n";
 		}
-	} while(valid_choice); 
-	return end;
+	} while(valid_choice);
+
+	return end; 
 }
 
 void Forest::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
-	char input; 
+
+	this->printInstruction();
 	do {
-		this->printInstruction();
-		cin >> input;
-		cout << endl; 
+		char input = validateData();  
 		switch(input){
 			case 'i':
 				player->showItems(); 
@@ -104,15 +113,14 @@ void Forest::startFight(Player* player) {
 			case 'a':
 				player->attack(magnus); 
 				if(magnus->isAlive()){
-					cout << magnus->getName() << " attacked back!" << endl; 
+					cout << magnus->getName() << " attacked back!";
 					magnus->attack(player); 					
 				}
 				break; 
 			case 'p':
 				player->useItem(new Potion);
-				break; 
 			case 'x':
-				player->printHealth(); 
+				player->printHealth();  	
 				break; 
 			case 's':
 				player->useItem(new SuperPotion);
@@ -120,8 +128,11 @@ void Forest::startFight(Player* player) {
 			case 'b':
 				player->useItem(new Bomb);
 				break; 
+			case 'h': 
+				this->printInstruction();
+				break; 
 			default:
-			std::cout << "Chose wrong option, please try again"; 
+			std::cout << "Chose wrong option, please try again, type h for options.\n"; 
 		}
 	}while(player->isAlive() && magnus->isAlive());
 }

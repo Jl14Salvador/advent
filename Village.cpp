@@ -67,18 +67,6 @@ void Village::run(Player* p){
 		cout << "You failed to pass this environment." << endl; 
 }
 
-/*string Village::readHelpFile(){
-
-	ifstream file("help.txt");
-	string toReturn;
-	string currentLine;
-	while(getline(file, currentLine)){
-		toReturn += currentLine + "\n";
-	}
-
-	return toReturn;
-}*/
-
 bool Village::playerSequence(Player* p){
 
 	cout << text.enemyMsg;  

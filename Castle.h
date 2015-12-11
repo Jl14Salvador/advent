@@ -31,15 +31,6 @@ public:
 private:
 	Enemy* ledorf; 
 
-	///Welcome Message for the environment
-	string welcomeMsg;
-
-	///Exit Message for the environment	
-	string exitMsg;
-
-	///generates help file
-    string readHelpFile();
-
     ///This generates the battle for the environment and gives the player the options to display help, start fight or exit 
  	bool playerSequence(Player* p);
 
@@ -52,6 +43,9 @@ private:
 
  	///The dialog for this environment 
  	CastleText text; 
+
+ 	///Messages for the gems 
+ 	GemText gemMsg; 
 };
 
 #endif /* CASTLE_H */

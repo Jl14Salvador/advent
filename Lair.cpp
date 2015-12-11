@@ -1,21 +1,21 @@
 /*
- * Castle.cpp
+ * Lair.cpp
  *
  *  Created on: Nov 7, 2015
  *      Author: Blinding Eclipse
  */
-#include "Castle.h"
+#include "Lair.h"
 using namespace std;
 
-Castle::Castle() {
-	ledorf = new Enemy("King Ledorf", 400, 40);
+Lair::Lair() {
+	smaug = new Enemy("Smaug", 1000, 60);
 	quit = false;
 
 }
 /**
- * This method executes the logics of the Castle chapter
+ * This method executes the logics of the Lair chapter
  */
-void Castle::run(Player* p){
+void Lair::run(Player* p){
 	cout << text.welcomeMsg;
 	cout << text.story1; 
 	cout << text.story2; 
@@ -27,48 +27,17 @@ void Castle::run(Player* p){
 		break;
 		
 	} while (!endEnvironment);
-	if(p->isAlive() && quit == false) {
-		p->addGem();	
-		switch(p->getGems()) {
-			cout << p->getGems() << " this many gems" << endl; 
-			case 1:				
-				p->setWeapon(new FireAttk); 
-				cout << gemMsg.fire1; 		 
-				reportGems(p); 
-				cout << gemMsg.fire2; 
-				break; 
-			case 2:
-				p->setWeapon(new IceAttk); 
-				cout << gemMsg.ice1; 		 
-				reportGems(p); 
-				cout << gemMsg.ice2; 
-				break; 
-			case 3:
-				p->setWeapon(new Quake); 
-				cout << gemMsg.earth1; 		 
-				reportGems(p); 
-				cout << gemMsg.earth2; 
-				break; 
-			case 4:
-				p->setWeapon(new MasterSword); 
-				cout << gemMsg.rainbow1; 		 
-				reportGems(p); 
-				cout << gemMsg.rainbow2; 
-				break;
-			default:
-				cout << "No new attack acquired" << endl; 
-		}
+	if(p->isAlive() && quit == false) {		
 		cout << text.exitMsg << endl; 
 		cout << "***************************************************************************" << endl; 
 	}
 	else 
-		cout << "You failed to pass this environment." << endl;
+		cout << "You failed to beat Smaug." << endl;
 }
 
-bool Castle::playerSequence(Player* p){
+bool Lair::playerSequence(Player* p){
 
 	cout << text.enemyMsg; 
-	cout << "There he is! " << ledorf->getName() << "! 'You will never have the last and most powerful gem!'" << endl;
 	
 	bool end = false;
 	bool valid_choice = true;
@@ -78,10 +47,7 @@ bool Castle::playerSequence(Player* p){
 		char userOpt = validateData();
 		switch(userOpt){
 			case 'Q':
-				cout << text.exitMsg << endl;
-				valid_choice = false;
-				end = true;
-				quit = true; 
+				cout << "\nCannot quit! This is the final stage of the game! \n";
 				break;
 			case 'a':
 				startFight(p);
@@ -99,7 +65,7 @@ bool Castle::playerSequence(Player* p){
 	return end; 
 }
 
-void Castle::startFight(Player* player) {
+void Lair::startFight(Player* player) {
 	cout << "Battle entered:" << endl; 
 
 	this->printInstruction();
@@ -110,10 +76,10 @@ void Castle::startFight(Player* player) {
 				player->showItems(); 
 				break;
 			case 'a':
-				player->attack(ledorf); 
-				if(ledorf->isAlive()){
-					cout << ledorf->getName() << " attacked back!";
-					ledorf->attack(player); 					
+				player->attack(smaug); 
+				if(smaug->isAlive()){
+					cout << smaug->getName() << " attacked back!";
+					smaug->attack(player); 					
 				}
 				break; 
 			case 'p':
@@ -133,5 +99,5 @@ void Castle::startFight(Player* player) {
 			default:
 			std::cout << "Chose wrong option, please try again, type h for options.\n"; 
 		}
-	}while(player->isAlive() && ledorf->isAlive());
+	}while(player->isAlive() && smaug->isAlive());
 }

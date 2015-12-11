@@ -4,8 +4,8 @@
  *  Created on: Nov 7, 2015
  *      Author: Blinding Eclipse
 */
-#ifndef FOREST_H_
-#define FOREST_H_
+#ifndef LAIR_H_
+#define LAIR_H_
 
 #include "Enemy.h"
 #include "Enviros.h"
@@ -17,19 +17,19 @@
 #include <iostream>
 #include <fstream>
 /**
- * The class represnets a Forest
+ * The class represnets a Lair
  */
-class Forest : public Enviros {
+class Lair : public Enviros {
 public:
 	///Constructors and Destructors
-	Forest();
-	~Forest(){}
+	Lair();
+	~Lair(){}
 
 	///The class that will run the entire Cave environment, sets up the enemies, and designates what happens in this time
 	void run(Player* player);
 
 private:
-	Enemy* magnus;
+	Enemy* smaug; 
 
     ///This generates the battle for the environment and gives the player the options to display help, start fight or exit 
  	bool playerSequence(Player* p);
@@ -42,10 +42,7 @@ private:
  	bool quit; 
 
  	///The dialog for this environment 
- 	ForestText text; 
-
- 	///Messages for the gems
- 	GemText gemMsg; 
+ 	LairText text; 
 };
 
-#endif /* FOREST_H_ */
+#endif /* LAIR_H_ */

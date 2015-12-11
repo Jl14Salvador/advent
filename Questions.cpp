@@ -35,7 +35,7 @@ bool Questions::question4() {
 	std::cout << "\n How many times does the minute hand and the hour hand meet in 24 hours?" ;
 	std::string answer; 
 	std::cin >> answer; 
-	if (answer == "22")
+	if (answer.compare("22") == 0)
 		return true; 
 	else 
 		return false; 

@@ -1,4 +1,3 @@
-
 #include "LandofTorvold.h"
 
 LandofTorvold::LandofTorvold() {
@@ -7,7 +6,7 @@ LandofTorvold::LandofTorvold() {
 	environmentList.push_back(new Forest() );	
 	environmentList.push_back(new Cave() );
 	environmentList.push_back(new Castle() );
-	smaug = new Enemy("Smaug", 1000, 60);
+	environmentList.push_back(new Lair() ); 
 }
 
 void LandofTorvold::run() {
@@ -22,9 +21,6 @@ void LandofTorvold::run() {
 			cout << "Game over" << endl; 
 	}
 
-	if(_player->isAlive() )
-		bossBattle(); 
-
 	if(!_player->isAlive())
 		cout << "Game Over!" << endl; 
 
@@ -34,71 +30,11 @@ void LandofTorvold::run() {
 			cout << "************************************************************" << endl; 
 	} 
 	
-}
-		
+}		
 
 void LandofTorvold::createUser() {
 	cout << "Please enter your name: "; 
 	string name; 
     cin >> name; 
 	_player = new Player(name, 500);
-}
-
-void LandofTorvold::bossBattle() {
-	cout << "You've encountered Smaug the dragon, its time to fight!!!" << endl; 
-	cout << "He's been waiting for you, but you now have the Master Sword and the power of all the gems" << endl; 
-	startFight(_player); 
-}
-
-void LandofTorvold::startFight(Player* player) {
-	cout << "Battle entered:" << endl; 
-	char input; 
-	do {
-		printInstruction();
-		cin >> input;
-		cout << endl; 
-		switch(input){
-			case 'i':
-				player->showItems(); 
-				break;
-			case 'a':
-				player->attack(smaug);
-				if(smaug->isAlive()){
-					cout << smaug->getName() << " attacked back!" << endl; 
-					smaug->attack(player); 
-				}
-				break; 
-			case 'p':
-				player->useItem(new Potion);
-				break;
-			case 'x':
-				player->printHealth();  
-				break;
-			case 's':
-				player->useItem(new SuperPotion);
-				break; 
-			case 'b':
-				player->useItem(new Bomb);
-				break; 	
-			default:
-			cout << "Chose wrong option, please try again"; 
-		}
-	}while(player->isAlive() && smaug->isAlive());
-}
-
-void LandofTorvold::printInstruction(){
-	cout << "\nPress i to show your inventory list:" << endl;
-	cout << "Press a to attack: " << endl; 
-	cout << "Press p to use potion: " << endl; 
-	cout << "Press b to use bomb: " << endl; 
-	cout << "Press s to use superPotion: " << endl; 
-	cout << "Press x to view current health: " << endl; 
-	// cout << "What would you like to do: "; 
-}
-
-void LandofTorvold::printEnviroInstruct() {
-	cout << "Q will exit the environment CHANGED" << endl;
-	cout << "a will start the fight" << endl;
-	cout << "h will read the help file" << endl; 
-	// cout << "What would you like to do: ";
 }

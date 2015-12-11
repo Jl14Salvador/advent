@@ -31,15 +31,6 @@ public:
 private:
 	Enemy* berners; 
 
-	///Welcome Message for the environment
-	string welcomeMsg;
-
-	///Exit Message for the environment
-	string exitMsg;
-
-	///generates help file
-    string readHelpFile();
-
     ///This generates the battle for the environment and gives the player the options to display help, start fight or exit 
  	bool playerSequence(Player* p);
 
@@ -50,14 +41,11 @@ private:
  	///Determines if the player quits and skips the environment 
  	bool quit; 
 
- 	///Messages for the gems 
- 	GemText gemMsg; 
-
  	///The dialog for this environment 
  	CaveText text; 
 
- 	///Outputs the number of gems the user has 
- 	void reportGems(Player* p); 
+ 	///Messages for the gems 
+ 	GemText gemMsg; 
  };
 
 #endif /* CAVE_H */
