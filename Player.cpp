@@ -5,7 +5,7 @@ Player::Player(const string playerName) : Character(playerName), gems(0) {
 	_weapon = new BasicAttk; 
 
 	///Set itemList 
-	itemList.push_back(new Bomb); 
+	itemList.push_back(new PowerUp); 
 	itemList.push_back(new Potion);
 	itemList.push_back(new SuperPotion); 
 }
@@ -14,7 +14,7 @@ Player::Player(const string playerName, int h) : Character(playerName, h), gems(
 	_weapon = new BasicAttk; 
 
 	///Set itemList 
-	itemList.push_back(new Bomb);  
+	itemList.push_back(new PowerUp);  
 	itemList.push_back(new Potion); 
 	itemList.push_back(new SuperPotion); 
 }
@@ -27,8 +27,8 @@ Player::~Player(){
 
 void Player::addItem(Items* it) {
 	for(unsigned int i=0; i < itemList.size(); i++) {
-		if(it->getName() == "Bomb" && itemList.at(i)->getName() == "Bomb"){
-			std::cout<< "Adding Bomb..." << endl; 
+		if(it->getName() == "PowerUp" && itemList.at(i)->getName() == "PowerUp"){
+			std::cout<< "Adding PowerUp..." << endl; 
 			itemList.at(i)->increment();
 		}
 			
@@ -46,8 +46,8 @@ void Player::addItem(Items* it) {
 
 void Player::useItem(Items* it) {
 	for(unsigned int i=0; i < itemList.size(); i++) {
-		if(it->getName() == "Bomb" && itemList.at(i)->getName() == "Bomb"){
-			std::cout<< "Using Bomb..." << endl; 
+		if(it->getName() == "PowerUp" && itemList.at(i)->getName() == "PowerUp"){
+			std::cout<< "Using PowerUp..." << endl; 
 			itemList.at(i)->useItem(this);
 		}
 			
@@ -75,11 +75,19 @@ void Player::showItems() const{
 		else 
 			cout << "s.\n";			
 	}
-
 }
 
 void Player::attack(Character* who) {
 	_weapon->attack(this, who); 
+}
+
+bool Player::critify(){
+	if(!_weapon->getIsPowered() ) {
+		_weapon->powerUp(); 
+		return true; 			
+	}
+
+	return false; 
 }
 
 void Player::setWeapon(Weapon* weaponType){

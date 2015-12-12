@@ -43,6 +43,9 @@ public:
 	///Attack method that passes who will be attacked 
 	void attack(Character* who);
 
+	///Allows next attack to become a critical strike returns true if next power is not already powered up
+	bool critify(); 
+
 	///Sets the weaponType of the Player, will change its attack behaviour
 	void setWeapon(Weapon* weaponType);
 
@@ -51,6 +54,7 @@ public:
 
 	///Retrives the amount of gems as an integer value
 	int getGems() const; 
+
 
 private:
 	vector<Items*> itemList;

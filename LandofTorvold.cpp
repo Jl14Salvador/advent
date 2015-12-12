@@ -10,7 +10,6 @@ LandofTorvold::LandofTorvold() {
 }
 
 void LandofTorvold::run() {
-
 	cout << "Excellent, you will travel through 4 different environments where you  will capture the sacred gems of the world." << endl; 
 	cout << "Once you've captured all the gems you will use their powers to defeat the fieresome Dragon that torments the Land. " << endl; 
 	cout << "Prepare yourself, for you will fight many battles and must become much stronger to fight your greatest opponent. " << endl; 
@@ -25,9 +24,10 @@ void LandofTorvold::run() {
 		cout << "Game Over!" << endl; 
 
 	else {
-		cout << "You have defeated Smaug, the merciless Dragon, you win the Game!" << endl; 
 		for(int i=0; i<9; i++)
 			cout << "************************************************************" << endl; 
+		cout << "You have defeated Smaug, the merciless Dragon!" << endl; 
+		cout << "Congratualtions you win the Game!" << endl; 
 	} 
 	
 }		

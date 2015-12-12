@@ -28,23 +28,23 @@ public:
 private:
 };
 
-class Bomb : public Items {
+class PowerUp : public Items {
 public: 
 	///Constructors and Destructors
-	Bomb() : name("Bomb"), quantity(2) {}
-	~Bomb(){}; 
+	PowerUp() : name("PowerUp"), quantity(2) {}
+	~PowerUp(){}; 
 
 	///Retrieves the name of the item
 	std::string getName() const;
 
-	///Retries the quantity of Bombs
+	///Retries the quantity of PowerUps
 	int getQuantity() const; 
 
-	///Method that use the item on the player object that is passed into it, logic for the bomb is done in here
+	///Method that use the item on the player object that is passed into it, logic for the PowerUp is done in here
 	///Decreases quantity of item
 	void useItem(Player* who); 
 
-	///Increase the quantity of Bombs
+	///Increase the quantity of PowerUps
 	void increment(); 
 
 private:

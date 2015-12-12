@@ -29,7 +29,6 @@ void Lair::run(Player* p){
 	} while (!endEnvironment);
 	if(p->isAlive() && quit == false) {		
 		cout << text.exitMsg << endl; 
-		cout << "***************************************************************************" << endl; 
 	}
 	else 
 		cout << "You failed to beat Smaug." << endl;
@@ -90,8 +89,8 @@ void Lair::startFight(Player* player) {
 			case 's':
 				player->useItem(new SuperPotion);
 				break; 
-			case 'b':
-				player->useItem(new Bomb);
+			case 'y':
+				player->useItem(new PowerUp);
 				break; 
 			case 'h': 
 				this->printInstruction();

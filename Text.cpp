@@ -4,7 +4,6 @@
 #include <iostream> 
 using namespace std; 
 
-
 struct VillageText {
 	string welcomeMsg = "\nYou have entered the Village\n";
 	string exitMsg = "You are now leaving the Village.\n"; 
@@ -41,7 +40,7 @@ struct CastleText {
 
 struct LairText {
 	string welcomeMsg = "\nThe time has finally come, you're greatest challenge awaits... \n";
-	string exitMsg = "You have defeated Smaug, the merciless Dragon, you win the Game!\n";
+	string exitMsg = "Smaug attempts to attack one more time.... he has no more energy.... he falls to the floor and the Land of Torvold shakes!!\n";
 	string story1 = "You've encountered Smaug the dragon, its time to fight!!!\n";
 	string story2 = "He's been waiting for you, but you now have the Master Sword and the power of all the gems\n"; 
 	string enemyMsg = "You've encountered Smaug the dragon, its time to fight!!! He's been waiting for you, but you now have the Master Sword and the power of all the gems!\n";

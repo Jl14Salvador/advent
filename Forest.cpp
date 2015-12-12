@@ -125,8 +125,8 @@ void Forest::startFight(Player* player) {
 			case 's':
 				player->useItem(new SuperPotion);
 				break; 
-			case 'b':
-				player->useItem(new Bomb);
+			case 'y':
+				player->useItem(new PowerUp);
 				break; 
 			case 'h': 
 				this->printInstruction();

@@ -17,10 +17,11 @@ public:
 	virtual ~Weapon(){};
 
 	///Pure virtual methods
-	virtual void attack(Character* attacker, Character* who) = 0; 
+	virtual void attack(Character* attacker, Character* who) = 0; 	
+	virtual void powerUp() = 0; 
+	virtual bool getIsPowered() = 0; 
 
 private: 
-
 };
 
 class BasicAttk : public Weapon {
@@ -35,14 +36,21 @@ public:
 	///Outputs to the screen what happens
 	void attack(Character* attacker, Character* who);
 
+	///Changes the isPowered variable to true, will double attack damage once
+	void powerUp(); 
+
+	///Returns the isPowered variable 
+	bool getIsPowered(); 
+
 private: 
 	int attackDamage; 
+	bool isPowered; 	
 };
 
 class FireAttk : public Weapon {
 public: 
 	///Constructors and Destructors
-	FireAttk() : attackDamage(40) {}
+	FireAttk() : attackDamage(40), isPowered(false) {}
 	~FireAttk(){};
 
 	///Attack method that takes in an attacker and who will be attacked Character objects
@@ -51,14 +59,21 @@ public:
 	///Outputs to the screen what happens
 	void attack(Character* attacker, Character* who);
 
+	///Changes the isPowered variable to true, will double attack damage once
+	void powerUp(); 
+
+	///Returns the isPowered variable 
+	bool getIsPowered(); 
+
 private: 
 	int attackDamage; 
+	bool isPowered; 
 };
 
 class IceAttk : public Weapon {
 public: 
 	///Constructors and Destructors
-	IceAttk() : attackDamage(60) {}
+	IceAttk() : attackDamage(60), isPowered(false) {}
 	~IceAttk(){};
 
 	///Attack method that takes in an attacker and who will be attacked Character objects
@@ -67,14 +82,21 @@ public:
 	///Outputs to the screen what happens
 	void attack(Character* attacker, Character* who);
 
+	///Changes the isPowered variable to true, will double attack damage once
+	void powerUp(); 
+
+	///Returns the isPowered variable 
+	bool getIsPowered(); 
+
 private: 
 	int attackDamage; 
+	bool isPowered; 
 };
 
 class Quake : public Weapon {
 public: 
 	///Constructors and Destructors
-	Quake() : attackDamage(80) {}
+	Quake() : attackDamage(80), isPowered(false) {}
 	~Quake(){};
 
 	///Attack method that takes in an attacker and who will be attacked Character objects
@@ -83,14 +105,21 @@ public:
 	///Outputs to the screen what happens
 	void attack(Character* attacker, Character* who); 
 
+	///Changes the isPowered variable to true, will double attack damage once
+	void powerUp(); 
+
+	///Returns the isPowered variable 
+	bool getIsPowered(); 
+
 private: 
-	int attackDamage; 
+	int attackDamage;
+	bool isPowered;  
 };
 
 class MasterSword : public Weapon {
 public: 
 	///Constructors and Destructors
-	MasterSword() : attackDamage(100) {}
+	MasterSword() : attackDamage(100), isPowered(false) {}
 	~MasterSword(){};
 
 	///Attack method that takes in an attacker and who will be attacked Character objects
@@ -99,8 +128,15 @@ public:
 	///Outputs to the screen what happens
 	void attack(Character* attacker, Character* who); 
 
+	///Changes the isPowered variable to true, will double attack damage once
+	void powerUp(); 
+
+	///Returns the isPowered variable 
+	bool getIsPowered(); 
+
 private: 
 	int attackDamage; 
+	bool isPowered; 
 };
 
 #endif

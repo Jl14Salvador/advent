@@ -2,40 +2,45 @@
 #include "Player.h" 
 #include <iostream>
 
-
 //------------------------------------------------------------------------------
 
-void Bomb::useItem(Player* who) {
+void PowerUp::useItem(Player* who) {
 	if(quantity > 0) {
-		std::cout << "Bomb has been used." << std::endl;
-		quantity--; 
-		std:: cout << "You have " << quantity << " " << name; 
-		if(quantity == 1) 
-			std::cout << " remaining\n";
-		else 	
-			std::cout << "s remaining\n";	
+		if(who->critify()) {
+			std::cout << "PowerUp has been used." << std::endl;
+			quantity--; 
+			std:: cout << "You have " << quantity << " " << name; 
+
+			if(quantity == 1) 
+				std::cout << " remaining\n";
+			else 	
+				std::cout << "s remaining\n";				
+		} 
+		else 
+			cout << "Next attack has already been powered up." << endl; 
 	}
 	else 
 		std::cout << "You have no " << name << "s left!" << endl; 		
 }
 
-string Bomb::getName() const {
+string PowerUp::getName() const {
 	return name; 
 }
 
-int Bomb::getQuantity() const {
+int PowerUp::getQuantity() const {
 	return quantity;
 }
 
-void Bomb::increment() {
+void PowerUp::increment() {
 	quantity += 1;  
 }
+
 //------------------------------------------------------------------------------
 
 void Potion::useItem(Player* who) {
 	if(quantity > 0) {
-		std::cout << name << " has been used" << std::endl; 
 		who->increaseHealth(20); 
+		std::cout << name << " has been used" << std::endl; 		
 		quantity--; 
 		std:: cout << "You have " << quantity << " " << name; 
 		if(quantity == 1) 
@@ -62,8 +67,8 @@ void Potion::increment() {
 //------------------------------------------------------------------------------
 void SuperPotion::useItem(Player* who){
 	if(quantity > 0) {
+		who->increaseHealth(50); 		
 		std::cout << name << " has been used" << std::endl; 
-		who->increaseHealth(50); 
 		quantity--; 
 		std:: cout << "You have " << quantity << " " << name; 
 		if(quantity == 1) 
