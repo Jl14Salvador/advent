@@ -1,4 +1,4 @@
-CC=g++11
+CC=g++ ##CC=g++11 - for linux support 
 CFLAGS=-Wall -g -std=c++11
 OBJS= advent.cpp Items.o Player.o Character.o Enemy.o Questions.o Weapon.o LandofTorvold.o Enviros.o Forest.o Village.o Castle.o Cave.o Text.o Lair.o
 
