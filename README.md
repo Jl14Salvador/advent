@@ -1,27 +1,12 @@
-# README #
+### Advent - A Text Based Adventure Game ###
 
-### Group Project 2720 Advent - BlindingEclipse Dev Team ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* A simple text based adventure game written in C++ to showcase usage of several design patterns.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Pull down repository. Navigate to the root of the folder. Type `make advent`.
+* Once the code is compiled, execute the resulting file `./advent`.
+* Press `H` for help at anytime. 
 
-### Contribution guidelines ###
+**NOTE**: Requiires a mac to run. May be ran in Linux as well by modiifying the MakeFile for the correct environment.
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
