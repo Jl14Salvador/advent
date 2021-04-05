@@ -6,7 +6,7 @@
 
 * Pull down repository. Navigate to the root of the folder. Type `make advent`.
 * Once the code is compiled, execute the resulting file `./advent`.
-* Press `H` for help at anytime. 
+* Press `H` for help at anytime for instructions.
 
 **NOTE**: Requiires a mac to run. May be ran in Linux as well by modiifying the MakeFile for the correct environment.
 
